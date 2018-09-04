@@ -1,0 +1,36 @@
+;time,EnemyNo.,max,step
+0010,10,03,100  ;Middle Boss
+0200,04,05,15   ;Uraura Left
+0200,05,05,15   ;Uraura Right
+0300,09,06,30   ;Heri
+0300,90,01,00	;Item
+0350,06,03,110	;Jiwa
+0450,08,10,20	;Uturn
+0600,11,20,10   ;choro
+0900,09,05,30   ;Heri
+0900,90,01,00   ;Item
+1000,04,04,10   ;Uraura Left
+1002,05,04,10   ;Uraura Right
+1100,10,03,100  ;Middle Boss
+1100,01,07,10   ;Zako Left to Right
+1100,02,07,10   ;Zako Right to Left
+1150,90,01,00   ;Item
+1200,11,20,10   ;choro
+1400,08,08,20	;Uturn
+1500,06,03,100	;Jiwa
+1600,04,04,15   ;Uraura Left
+1600,05,04,15   ;Uraura Right
+1700,10,05,50   ;Middle Boss
+1800,03,50,10   ;Zako Top to Bottom
+2000,90,02,100  ;Item
+2100,08,10,10   ;Uturn
+2300,09,05,30   ;Heri
+2500,11,30,10   ;choro
+2800,10,05,50   ;Middle Boss
+2900,08,30,10	;Uturn
+3000,90,05,200  ;Item
+3000,09,05,20   ;Heri
+3100,11,30,08   ;choro
+3200,04,04,15   ;Uraura Left
+3200,05,04,15   ;Uraura Right
+3300,00,01,00	;Boss

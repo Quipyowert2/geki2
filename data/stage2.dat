@@ -1,0 +1,31 @@
+;time,EnemyNo.,max,step
+0100,01,07,10   ;Zako Left to Right
+0230,02,07,10   ;Zako Right to Left
+0340,01,07,10   ;Zako Left to Right
+0450,02,07,10   ;Zako Right to Left
+0570,90,01,00   ;Item
+0600,01,05,30   ;Zako Left to Right
+0620,02,05,30   ;Zako Right to Left
+0700,04,04,15   ;Uraura Left
+0780,05,04,15   ;Uraura Right
+0860,04,04,15   ;Uraura Left
+0940,05,04,15   ;Uraura Right
+1020,03,10,10   ;Zako Top to Bottom
+1100,04,04,10   ;Uraura Left
+1102,05,04,10   ;Uraura Right
+1150,03,20,10   ;Zako Top to Bottom
+1200,90,01,00   ;Item
+1300,04,04,10   ;Uraura Left
+1302,05,04,10   ;Uraura Right
+1350,01,20,10   ;Zako Top to Bottom
+1450,90,01,00   ;Item
+1600,06,01,00	;Jiwa
+1650,07,10,60	;Sensya
+2300,04,04,10   ;Uraura Left
+2302,05,04,10   ;Uraura Right
+2450,03,20,10   ;Zako Top to Bottom
+2500,90,01,00   ;Item
+2550,01,07,10   ;Zako Left to Right
+2600,02,07,10   ;Zako Right to Left
+2650,08,30,10	;Uturn
+3000,00,01,00	;Boss

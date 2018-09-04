@@ -1,0 +1,64 @@
+Release Version 2.0.3 [8/12/2001]
+        - The description mistake of a dependency with the library in a spec file was corrected.
+-------------------------------------------------------------------------------
+Release Version 2.0.1 [15/08/2001]
+        - bug of configure script was corrected.
+-------------------------------------------------------------------------------
+Release Version 2.0.0 [13/08/2001]
+	- It is the KXL 1.x.x version.
+	- changed into bmp from xpm.
+-------------------------------------------------------------------------------
+Release Version 1.0.0 [27/05/2001]
+	- A Stage 6 is added.
+	- BGM is added.
+-------------------------------------------------------------------------------
+Release Version 0.9.8 [16/04/2001]
+	- BGM was changed for every stage. 
+	- A part of enemy was corrected and added. 
+	- An enemy's offensive balance was adjusted. 
+	- A part of background was corrected. 
+	- The title was changed. 
+-------------------------------------------------------------------------------
+Release Version 0.9.0 [07/04/2001]
+	- It was made to correspond to KXL.
+	- It was made to correspond to configure script.
+-------------------------------------------------------------------------------
+Release Version 0.8.7 [11/02/2001]
+	- The number of repetitions of a stage was added to ranking.
+	- The change of an item was made random.
+	- A few backgrounds of a stage 2 were corrected.
+	- The text in opening was made colorful.
+-------------------------------------------------------------------------------
+Release Version 0.8.6 [29/01/2001]
+	- The last stage was added.
+	- BGM was changed.
+	- When a self-opportunity was damaged,
+	  only one stage was made to lower power.
+-------------------------------------------------------------------------------
+Release Version 0.8.2 [27/10/2000]
+	- Score ranking was added.
+	- The background of a stage 4 was corrected.
+-------------------------------------------------------------------------------
+Release Version 0.8.0 [22/10/2000]
+	- The stage 4 was completed.
+	- The enemy was added.
+-------------------------------------------------------------------------------
+Release Version 0.6.3 [14/10/2000]
+	- The map of a stage 3 was changed.
+	- When the arms of a self-opportunity acquired the same item in
+	  the state of Max, the penetration cartridge was discharged in
+	  all directions.
+	- The number of self-opportunities was increased according to
+	  the score.
+-------------------------------------------------------------------------------
+Release Version 0.6.2 [17/09/2000]
+	- The stage 3 was added in test.
+	- The enemy was added.
+-------------------------------------------------------------------------------
+Release Version 0.6.1 [16/09/2000]
+	- The specification of a data file was changed.
+	- Difficulty was changed.
+-------------------------------------------------------------------------------
+Release Version 0.6.0 [19/08/2000]
+	- first (pre)release version
+	

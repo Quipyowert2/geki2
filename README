@@ -1,0 +1,47 @@
+		Geki2, a video-oriented game
+		Copyright (C) 2001, Katsuyoshi Sato
+			fc3srx7@mwnet.or.jp
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2 of the License, or (at your
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+675 Mass Ave, Cambridge, MA 02139, USA.
+--------------------------------------------------------------------------
+#Install
+
+  KXL library 1.0.0 or more Vers are required.
+  Please install beforehand.
+  (http://www2.mwnet.or.jp/~fc3srx7)
+
+  tar xzvf geki2-KXL-xxxx.tar.gz(xxxx is version)
+  cd geki2-KXL-xxxx
+  ./configure
+  make
+  make install
+  geki2 & return It starts. 
+--------------------------------------------------------------------------
+#key operation
+
+  cursor up    - It moves upward.
+  cursor down  - It moves downward.
+  cursor left  - It moves to the left.
+  cursor right - It moves to the right.
+  'z'          - discharges arms.
+  's'          - pause.
+                 'z' - return.
+
+--------------------------------------------------------------------------
+#Power up items.
+
+[S] ball  - shot power up.
+[L] ball  - laser power up.
+--------------------------------------------------------------------------

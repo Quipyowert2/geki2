@@ -1,0 +1,54 @@
+%define name @PACKAGE@
+%define version @VERSION@
+%define release 1
+
+Summary      : Geki2, a video-oriented game
+Name         : %{name}
+Version      : %{version}
+Release      : %{release}
+Copyright    : GPL
+Group        : Amusements/Games
+Source       : http://www2.mwnet.or.jp/~fc3srx7/download/%{name}-%{version}.tar.gz
+URL          : http://www2.mwnet.or.jp/~fc3srx7/
+BuildRoot    : /var/tmp/%{name}-%{version}-root
+
+Requires     : KXL >= 1.1.1
+
+%description
+2D length scroll shooting game
+
+%prep
+rm -rf ${RPM_BUILD_ROOT}
+
+%setup -q -n %{name}-%{version}
+
+%build
+./configure --prefix=%{_prefix}
+make
+
+%install
+rm -rf ${RPM_BUILD_ROOT}
+make DESTDIR=${RPM_BUILD_ROOT} install
+
+%clean
+rm -rf ${RPM_BUILD_ROOT}
+
+%files
+%defattr(-,root,root)
+%doc COPYING ChangeLog README
+%{_prefix}/bin/geki2
+%dir %{_prefix}/share/geki2
+%{_prefix}/share/geki2/bmp
+%{_prefix}/share/geki2/wav
+%dir %{_prefix}/share/geki2/data
+%{_prefix}/share/geki2/data/*.dat
+%config(noreplace) %{_prefix}/share/geki2/data/.score
+
+%changelog
+* Sat Dec 8 2001 SATO Katsuyoshi <fc3srx7@mwnet.or.jp>
+- (2.0.3-1)
+- The description mistake of a dependency with the library in a spec file was corrected.
+
+* Wed Aug 29 2001 SATO Katsuyoshi <fc3srx7@mwnet.or.jp>
+- (2.0.1-2)
+- first build
