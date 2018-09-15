@@ -118,8 +118,10 @@ void DeleteRoot(void)
   KXL_DeleteWindow();
   for (i = 0; i < MAX_MY; i ++)
     free(Root->My[i]);
+  free(Root->My);
   for (i = 0; i < MAX_YOUR; i ++)
     free(Root->Your[i]);
+  free(Root->Your);
   free(Root);
   for (i = 0; i < 5; i ++)
     KXL_Free(Ranking[i]);
