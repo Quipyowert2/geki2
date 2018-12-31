@@ -8,7 +8,7 @@ RcHitEnum HitDelete(CharacterData *my, CharacterData *your);
 RcHitEnum HitNone(CharacterData *my, CharacterData *your);
 RcHitEnum MoveStandard(CharacterData *my);
 RcHitEnum MoveStandardNoFrame(CharacterData *my);
-Uint16 GetDirection(CharacterData *your, CharacterData *my);
+Uint16 GetDirection(CharacterData *my, CharacterData *your);
 void GetDirectionAdd(Uint16, Sint16 *ax, Sint16 *ay, Uint16 speed);
 void  ClearAndGameOver(void);
 void Infomation(void);
