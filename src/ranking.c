@@ -40,7 +40,7 @@ void ReadScore(void)
   if ((fp = fopen(DATA_PATH "/.score", "r"))) {
     fscanf(fp, "%d", &(Root->HiScore));
     for (i = 0; i < 5; i ++)
-      fscanf(fp, "%d %d %d %s",
+      fscanf(fp, "%d %d %d %15s",
 	     &(Ranking[i]->Score),
 	     &(Ranking[i]->Stage),
 	     &(Ranking[i]->Loop),
