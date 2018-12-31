@@ -81,6 +81,7 @@ PixData **LoadPixmaps(Uint8 *fname, Uint8 blend, Uint16 max, float per)
 void UnLoadPixmap(PixData *my)
 {
   KXL_DeleteImage(my->Image);
+  free(my);
 }
 
 /**********************
