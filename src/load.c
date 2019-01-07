@@ -217,7 +217,7 @@ void LoadStageData(void)
     else
       StageDatas = (StageData **)KXL_Realloc(StageDatas, sizeof(StageData *) * (Root->StageMax + 1));
     StageDatas[Root->StageMax] = (StageData *)KXL_Malloc(sizeof(StageData));
-    sscanf(buff,"%d, %d, %d, %d",
+    sscanf(buff,"%hu, %hhu, %hhu, %hu",
            &(StageDatas[Root->StageMax]->Time),
            &(StageDatas[Root->StageMax]->CreateNo),
            &(StageDatas[Root->StageMax]->Max),

@@ -39,9 +39,9 @@ void ReadScore(void)
   Uint16 i;
 
   if ((fp = fopen(DATA_PATH "/.score", "r"))) {
-    fscanf(fp, "%d", &(Root->HiScore));
+    fscanf(fp, "%lu", &(Root->HiScore));
     for (i = 0; i < 5; i ++)
-      fscanf(fp, "%d %d %d %15s",
+      fscanf(fp, "%lu %hhu %hhu %15s",
 	     &(Ranking[i]->Score),
 	     &(Ranking[i]->Stage),
 	     &(Ranking[i]->Loop),
@@ -71,9 +71,9 @@ void WriteScore(void)
   Uint16 i;
 
   if ((fp = fopen(DATA_PATH "/.score", "w"))) {
-    fprintf(fp, "%d\n", Root->HiScore);
+    fprintf(fp, "%lu\n", Root->HiScore);
     for (i = 0; i < 5; i ++)
-      fprintf(fp, "%d %d %d %s\n",
+      fprintf(fp, "%lu %d %d %s\n",
 	      Ranking[i]->Score,
 	      Ranking[i]->Stage,
 	      Ranking[i]->Loop,

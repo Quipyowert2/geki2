@@ -172,14 +172,14 @@ void Infomation(void)
   KXL_Rect r;
 
   /** スコア **/
-  sprintf(text, "Score %07d", Root->Score);
+  sprintf(text, "Score %07lu", Root->Score);
   KXL_Font(NULL, 0xff, 0xff, 0xff);
   KXL_PutText(AREA_LX + 280, AREA_LY + 12, text);
 
   /** ハイスコア **/
   if (Root->Score > Root->HiScore)
     Root->HiScore = Root->Score;
-  sprintf(text, "Hi-Score %07d", Root->HiScore);
+  sprintf(text, "Hi-Score %07lu", Root->HiScore);
   KXL_PutText(AREA_LX + 60, AREA_LY + 12, text);
 
   /** ステージ **/

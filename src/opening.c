@@ -104,7 +104,7 @@ Bool Opening(void)
     KXL_PutText(CENTER(buff), AREA_LY + 168, buff);
     KXL_Font(NULL, 0xff, 0xff, 0xff);
     for (i = 0; i < 5; i ++) {
-      sprintf(buff, "    %d    %08d     %d       %d    %-8s", i + 1,
+      sprintf(buff, "    %hu    %08lu     %hhu       %hhu    %-8s", i + 1,
 	      Ranking[i]->Score, Ranking[i]->Stage + 1,
 	      Ranking[i]->Loop + 1, Ranking[i]->Name);
       KXL_PutText(CENTER(buff), AREA_LY + 188 + i * 20, buff);
