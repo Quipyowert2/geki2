@@ -1,4 +1,5 @@
 #include <pwd.h>
+#include <string.h>
 #include "geki2.h"
 #include "extern.h"
 

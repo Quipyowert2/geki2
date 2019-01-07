@@ -2,6 +2,8 @@
    Filename    :  utu.c
    Description :  
  ***********************************************************************/
+#include <string.h>
+#include <time.h>
 #include "geki2.h"
 #define _EXTERN_DEF_
 #include "extern.h"

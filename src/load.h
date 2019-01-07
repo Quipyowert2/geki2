@@ -9,5 +9,6 @@ void UnLoadPixmaps(PixData **my, int max);
 void CreatePixmap(void);
 void DeletePixmap(void);
 void LoadStageData(void);
+void UnLoadStageData(void);
 
 #endif
