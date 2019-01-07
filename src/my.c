@@ -25,6 +25,7 @@ RcHitEnum MoveMyShot(CharacterData *my)
   case 3:
     return RcHitDel;
   }
+  return RcHitNone;
 }
 
 /****************************

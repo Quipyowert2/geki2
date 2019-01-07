@@ -54,6 +54,7 @@ Sint16 CopyMyNew(RcHitEnum (*act)(CharacterData *my),
       return i;
     }
   }
+  return -1;
 }
 
 /****************************
@@ -98,6 +99,7 @@ Sint16 CopyYourNew(RcHitEnum (*act)(CharacterData *my),
       return i;
     }
   }
+  return -1;
 }
 
 /****************************
