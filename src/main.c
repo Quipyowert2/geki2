@@ -106,6 +106,7 @@ void CreateRoot(void)
   ReadScore();
   Root->Key = KNone;
   Root->Stage =
+  Root->StageLoop =
   Root->Cnt = 0;
   Root->WaitFlag = True;
 }
