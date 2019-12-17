@@ -6,7 +6,7 @@ Summary      : Geki2, a video-oriented game
 Name         : %{name}
 Version      : %{version}
 Release      : %{release}
-Copyright    : GPL
+License      : GPL
 Group        : Amusements/Games
 Source       : http://www2.mwnet.or.jp/~fc3srx7/download/%{name}-%{version}.tar.gz
 URL          : http://www2.mwnet.or.jp/~fc3srx7/
