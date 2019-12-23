@@ -12,7 +12,7 @@ Source       : http://www2.mwnet.or.jp/~fc3srx7/download/%{name}-%{version}.tar.
 URL          : http://www2.mwnet.or.jp/~fc3srx7/
 BuildRoot    : /var/tmp/%{name}-%{version}-root
 
-Requires     : KXL >= 1.1.1
+Requires     : kxl >= 1.1.1
 
 %description
 2D length scroll shooting game
@@ -47,6 +47,17 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) %{_prefix}/share/geki2/data/.score
 
 %changelog
+* Sun Dec 22 2019 Nathan Mills <Quipyowert2@users.noreply.github.com>
+- (2.0.4-1)
+- Install levels along with the game
+- Replace obsolete Copyright tag with License tag
+- Initialize StageLoop so Valgrind doesn't warn about it
+- Fix missing return values in a few functions
+- Fix some -Wformat warnings using %lu, %hhu, and %hu
+- Fix implicit declarations of strcpy, memcpy, time
+- Fix possible crash with fscanf
+- Fix 3kb memory leak
+- Fix 1.5kb memory leak
 * Sat Dec 8 2001 SATO Katsuyoshi <fc3srx7@mwnet.or.jp>
 - (2.0.3-1)
 - The description mistake of a dependency with the library in a spec file was corrected.
