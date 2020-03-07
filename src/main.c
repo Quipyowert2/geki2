@@ -86,11 +86,15 @@ void CreateRoot(void)
   /** ルート領域確保 **/
   Root = (RootData *)KXL_Malloc(sizeof(RootData));
   Root->My = (CharacterObject **)KXL_Malloc(sizeof(CharacterObject *) * MAX_MY);
-  for (i = 0; i < MAX_MY; i ++)
+  for (i = 0; i < MAX_MY; i ++) {
     Root->My[i] = (CharacterObject *)KXL_Malloc(sizeof(CharacterObject));
+    memset(Root->My[i], 0, sizeof(CharacterObject));
+  }
   Root->Your = (CharacterObject **)KXL_Malloc(sizeof(CharacterObject *) * MAX_YOUR);
-  for (i = 0; i < MAX_YOUR; i ++)
+  for (i = 0; i < MAX_YOUR; i ++) {
     Root->Your[i] = (CharacterObject *)KXL_Malloc(sizeof(CharacterObject));
+    memset(Root->Your[i], 0, sizeof(CharacterObject));
+  }
   Ranking = (RankingData **)KXL_Malloc(sizeof(RankingData *) * 5);
   for (i = 0; i < 5; i ++)
     Ranking[i] = (RankingData *)KXL_Malloc(sizeof(RankingData));
