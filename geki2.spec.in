@@ -47,6 +47,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) %{_prefix}/share/geki2/data/.score
 
 %changelog
+* Fri Mar 6 2020 Nathan Mills <Quipyowert2@users.noreply.github.com>
+- (2.0.5-1)
+- Initialize Root->My and Root->Your arrays with zero
 * Sun Dec 22 2019 Nathan Mills <Quipyowert2@users.noreply.github.com>
 - (2.0.4-1)
 - Install levels along with the game
