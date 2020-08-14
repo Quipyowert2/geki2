@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
   tar xzvf geki2-KXL-xxxx.tar.gz(xxxx is version)
   cd geki2-KXL-xxxx
-  ./autogen.sh
+  ./autogen.sh #requires autoconf and automake
   ./configure
   make
   make install
