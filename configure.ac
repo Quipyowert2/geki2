@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT([geki2-KXL], [2.0.5])
+AC_INIT([geki2-KXL], [2.0.6])
 AC_CONFIG_SRCDIR([src/geki2.h])
 AM_INIT_AUTOMAKE
 

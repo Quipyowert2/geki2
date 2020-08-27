@@ -47,6 +47,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) %{_prefix}/share/geki2/data/.score
 
 %changelog
+* Wed Aug 26 2020 Nathan Mills <Quipyowert2@users.noreply.github.com>
+- (2.0.6-1)
+- Fix missing levels when installing with make install
 * Fri Mar 6 2020 Nathan Mills <Quipyowert2@users.noreply.github.com>
 - (2.0.5-1)
 - Initialize Root->My and Root->Your arrays with zero
