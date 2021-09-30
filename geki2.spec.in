@@ -47,6 +47,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) %{_prefix}/share/geki2/data/.score
 
 %changelog
+* Thu Sep 30 2021 Nathan Mills <Quipyowert2@users.noreply.github.com>
+- (2.0.8-1)
+- Fix another pointer sign warning.
 * Wed Sep 29 2021 Nathan Mills <Quipyowert2@users.noreply.github.com>
 - (2.0.7-1)
 - Fix some pointer sign warnings
