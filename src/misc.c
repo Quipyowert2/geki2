@@ -116,7 +116,7 @@ void ClearAndGameOver(void)
   static Uint16 no;
   Uint16 y[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0};
   Uint16 i;
-  Uint8 *str[3] = {"Clear", "GameOver", "Congratulations"};
+  char *str[3] = {"Clear", "GameOver", "Congratulations"};
 
   switch (Root->Cnt) {
   case 0:
@@ -168,7 +168,7 @@ void ClearAndGameOver(void)
  **********************/
 void Infomation(void)
 {
-  Uint8 text[30];
+  char text[30];
   KXL_Rect r;
 
   /** ¥¹¥³¥¢ **/

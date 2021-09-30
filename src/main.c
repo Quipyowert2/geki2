@@ -171,7 +171,7 @@ void options(int argc, char **argv)
  ****************************/
 int main(int argc, char **argv)
 {
-  Uint8 *sname[]={
+  char *sname[]={
     "bgm1",
     "bgm2",
     "bgm3",

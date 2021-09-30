@@ -13,9 +13,9 @@ void SetPer(PixData *my, float per)
   ピックスマップロード
   分割
  **********************/
-PixData **LoadPixmapSplit(Uint8 *fname, Uint8 blend, Uint16 max, float per)
+PixData **LoadPixmapSplit(const char *fname, Uint8 blend, Uint16 max, float per)
 {
-  Uint8 filename[64];
+  char filename[64];
   Uint16 w, h, i;
   KXL_Image *img;
   PixData **new;
@@ -45,9 +45,9 @@ PixData **LoadPixmapSplit(Uint8 *fname, Uint8 blend, Uint16 max, float per)
 /**********************
   ピックスマップロード
  **********************/
-PixData *LoadPixmap(Uint8 *fname, Uint8 blend, float per)
+PixData *LoadPixmap(const char *fname, Uint8 blend, float per)
 {
-  Uint8 filename[64];
+  char filename[64];
   PixData *new;
 
   /* xpmファイル読み込み */
@@ -61,10 +61,10 @@ PixData *LoadPixmap(Uint8 *fname, Uint8 blend, float per)
 /**********************
   ピックスマップロード
  **********************/
-PixData **LoadPixmaps(Uint8 *fname, Uint8 blend, Uint16 max, float per)
+PixData **LoadPixmaps(const char *fname, Uint8 blend, Uint16 max, float per)
 {
   PixData **new;
-  Uint8 filename[64];
+  char filename[64];
   Uint16 i;
 
   new = (PixData **)KXL_Malloc(sizeof(PixData *) * max);
@@ -165,7 +165,7 @@ void DeletePixmap(void)
 void LoadStageData(void)
 {
   FILE *fp;
-  Uint8 buff[256];
+  char buff[256];
   Sint16 dat, i;
   Uint8 bossmax[] = {2, 3 * 2, 1 * 2, 1 * 2, 1 * 2, 1 * 2};
   Uint8 backmax[] = {7, 16, 20, 8, 18, 15};

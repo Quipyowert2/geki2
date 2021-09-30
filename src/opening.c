@@ -4,7 +4,7 @@
 #define OP_BASE (AREA_LX+170)
 #define CENTER(str) (AREA_LX + (DRAW_WIDTH - KXL_TextWidth((str))) / 2)
 #define TO_MENU "push any key to menu"
-Uint8 *title[]={
+char *title[]={
   " 000                000 ",
   "0   0       0    0 0   0",
   "0   0  000  0  0       0",
@@ -54,7 +54,7 @@ Bool Opening(void)
 {
   static Uint16 OldKey = KNone;
   Uint16 i, j;
-  Uint8 buff[65];
+  char buff[65];
 
   /* title */
   KXL_Rect rect = {AREA_LX, AREA_LY, DRAW_WIDTH, DRAW_HEIGHT};
