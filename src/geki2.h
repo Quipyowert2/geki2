@@ -178,7 +178,7 @@ typedef struct {
   Uint32 Score;
   Uint8 Stage;
   Uint8 Loop;
-  Uint8 Name[16];
+  char Name[16];
 } RankingData;
 
 /*ステージデータ*/
