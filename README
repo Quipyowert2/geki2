@@ -46,3 +46,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 [S] ball  - shot power up.
 [L] ball  - laser power up.
 --------------------------------------------------------------------------
+
+Note: The sources use the euc-jp encoding. To use this encoding in Vim,
+edit a file and then run this command to switch the encoding:
+:edit ++encoding=euc-jp
