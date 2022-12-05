@@ -15,7 +15,7 @@ int ScoreRanking(void)
     if (Ranking[i]->Score < Root->Score)
       break;
   if (i == 5)
-    return;
+    return 6;
   if (i != 4) {
     for (j = 4; j > i; j --)
       memcpy(Ranking[j], Ranking[j - 1], sizeof(RankingData));
@@ -28,6 +28,7 @@ int ScoreRanking(void)
   else
     strcpy(Ranking[i]->Name, pw->pw_name);
   WriteScore();
+  return i + 1;
 }
 
 /**********************
