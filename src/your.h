@@ -14,39 +14,39 @@ void CreateEnemyShot1(Sint16 x, Sint16 y, Uint16 dir, Uint8 speed, Uint8 sel);
 void CreateEnemyShot2(Sint16 x, Sint16 y, PixData **spr, Uint8 max, Uint16 dir, Uint8 speed);
 
 
-/** •∂•≥ **/
+/** „Ç∂„Ç≥ **/
 void CreateZako(Sint16 x, Sint16 dir, Uint8 speed);
 RcHitEnum MoveZako(CharacterData *my);
 
-/** •ø•Û•Ø **/
+/** „Çø„É≥„ÇØ **/
 void CreateTank(void);
 RcHitEnum MoveTank(CharacterData *my);
 
-/** •Ê•È•Ê•È **/
+/** „É¶„É©„É¶„É© **/
 void CreateUraura(Sint16 x, Uint8 sel);
 RcHitEnum MoveUraura(CharacterData *my);
 
-/** •∏•Ô **/
+/** „Ç∏„ÉØ **/
 void CreateJiwa(Sint16 x, Sint16 y, Uint16 dir);
 RcHitEnum MoveJiwa(CharacterData *my);
 
-/** À§¬Ê **/
+/** Á†≤Âè∞ **/
 void CreateHoudai(Sint16 x, Uint16 dir, Uint8 speed);
 RcHitEnum MoveHoudai(CharacterData *my);
 
-/** U•ø°º•Û **/
+/** U„Çø„Éº„É≥ **/
 void CreateUturn(Sint16 x);
 RcHitEnum MoveUturn(CharacterData *my);
 
-/** §Ø§Î§Ø§Î **/
+/** „Åè„Çã„Åè„Çã **/
 void CreateKuru(void);
 RcHitEnum MoveKuru(CharacterData *my);
 
-/** √Ê•‹•π **/
+/** ‰∏≠„Éú„Çπ **/
 void CreateMiddleBoss(void);
 RcHitEnum MoveMiddleBoss(CharacterData *my);
 
-/** §¡§Á§Ì **/
+/** „Å°„Çá„Çç **/
 void CreateChoro(Sint16 x);
 RcHitEnum MoveChoro(CharacterData *my);
 

@@ -2,7 +2,7 @@
 #include "extern.h"
 
 /****************************
-  ÇúÈ¯
+  çˆ†ç™º
  ****************************/
 RcHitEnum MoveBomb(CharacterData *my)
 {
@@ -12,14 +12,14 @@ RcHitEnum MoveBomb(CharacterData *my)
 }
 
 /****************************
-  HP¤¬Ìµ¤¯¤Ê¤Ã¤¿¤éÇúÈ¯¤¹¤ë
+  HPãŒç„¡ããªã£ãŸã‚‰çˆ†ç™ºã™ã‚‹
  ****************************/
 RcHitEnum HitEnemyToBomb(CharacterData *my, CharacterData *your)
 {
   my->Hp -= your->Cnt3;
   if (my->Hp <= 0) {
     KXL_PlaySound(SE_BOMB, KXL_SOUND_PLAY);
-    /*ÇúÈ¯*/
+    /*çˆ†ç™º*/
     Cchr.Attr     = AttrNone;
     Cchr.Target   = AttrNone;
     Cchr.X        = (my->X + my->Spr[0]->Image->Width / 2)
@@ -35,7 +35,7 @@ RcHitEnum HitEnemyToBomb(CharacterData *my, CharacterData *your)
 }
 
 /****************************
-  "¥¢¥¤¥Æ¥à"½Ð¸½
+  "ã‚¢ã‚¤ãƒ†ãƒ "å‡ºç¾
  ****************************/
 void CreateItem(Sint16 x, Sint16 y, PixData **pix)
 {
@@ -53,24 +53,24 @@ void CreateItem(Sint16 x, Sint16 y, PixData **pix)
 }
 
 /****************************
-  "¥¢¥¤¥Æ¥à"°ÜÆ°
+  "ã‚¢ã‚¤ãƒ†ãƒ "ç§»å‹•
  ****************************/
 RcHitEnum MoveItem(CharacterData *my)
 {
   PixData **pix[] = {PixItemShot, PixItemLaser};
 
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   GetDirectionAdd(my->Cnt1, &(my->AddX), &(my->AddY), 4);
   KXL_DirectionAdd(my->X, my->CntX, my->AddX);
   KXL_DirectionAdd(my->Y, my->CntY, my->AddY);
-  if (my->Y > PICT_HEIGHT) /*²èÌÌ²¼¤Ç¾Ã¤¨¤ë*/
+  if (my->Y > PICT_HEIGHT) /*ç”»é¢ä¸‹ã§æ¶ˆãˆã‚‹*/
     return RcHitDel;
   
   if (my->Cnt3 < 8) {
     my->Cnt3 ++;
   } else {
     my->Cnt1 += 6;
-    if (my->Cnt1 == 360) { /*¥¢¥¤¥Æ¥à¤òÀÚ¤êÂØ¤¨¤ë*/
+    if (my->Cnt1 == 360) { /*ã‚¢ã‚¤ãƒ†ãƒ ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹*/
       my->Cnt2 = rand() % 2;
       my->Spr = pix[my->Cnt2];
       my->Cnt1 = 0;
@@ -81,7 +81,7 @@ RcHitEnum MoveItem(CharacterData *my)
 }
 
 /****************************
-  HP¤¬Ìµ¤¯¤Ê¤Ã¤¿¤éÇúÈ¯¤¹¤ë
+  HPãŒç„¡ããªã£ãŸã‚‰çˆ†ç™ºã™ã‚‹
  ****************************/
 RcHitEnum HitEnemyToItem(CharacterData *my, CharacterData *your)
 {
@@ -89,7 +89,7 @@ RcHitEnum HitEnemyToItem(CharacterData *my, CharacterData *your)
   if (my->Hp <= 0) {
     KXL_PlaySound(SE_BOMB, KXL_SOUND_PLAY);
     CreateItem(my->X, my->Y, rand() % 2 ? PixItemShot : PixItemLaser);
-    /*ÇúÈ¯*/
+    /*çˆ†ç™º*/
     Cchr.Attr     = AttrNone;
     Cchr.Target   = AttrNone;
     Cchr.X        = (my->X + my->Spr[0]->Image->Width / 2)
@@ -105,7 +105,7 @@ RcHitEnum HitEnemyToItem(CharacterData *my, CharacterData *your)
 }
 
 /****************************
-  ÉáÄÌ¤ÎÃÆÈ¯¼Í
+  æ™®é€šã®å¼¾ç™ºå°„
  ****************************/
 void CreateEnemyShot1(Sint16 x, Sint16 y, Uint16 dir, Uint8 speed, Uint8 sel)
 {
@@ -119,7 +119,7 @@ void CreateEnemyShot1(Sint16 x, Sint16 y, Uint16 dir, Uint8 speed, Uint8 sel)
 }
 
 /****************************
-  ²óÅ¾¤¹¤ëÃÆÈ¯¼Í
+  å›žè»¢ã™ã‚‹å¼¾ç™ºå°„
  ****************************/
 void CreateEnemyShot2(Sint16 x, Sint16 y, PixData **spr, Uint8 max, Uint16 dir, Uint8 speed)
 {
@@ -134,7 +134,7 @@ void CreateEnemyShot2(Sint16 x, Sint16 y, PixData **spr, Uint8 max, Uint16 dir, 
 }
 
 /****************************
-  "¥¶¥³"½Ð¸½
+  "ã‚¶ã‚³"å‡ºç¾
  ****************************/
 void CreateZako(Sint16 x, Sint16 dir, Uint8 speed)
 {
@@ -152,19 +152,19 @@ void CreateZako(Sint16 x, Sint16 dir, Uint8 speed)
 }
 
 /****************************
-  "¥¶¥³"°ÜÆ°
+  "ã‚¶ã‚³"ç§»å‹•
  ****************************/
 RcHitEnum MoveZako(CharacterData *my)
 {
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   KXL_DirectionAdd(my->X, my->CntX, my->AddX);
   KXL_DirectionAdd(my->Y, my->CntY, my->AddY);
   if (my->Y < 0 || my->Y > AREA_RY || my->X < 0 || my->X > AREA_RX)
     return RcHitDel;
-  /*¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+  /*ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
   if (++ my->FrameNo == my->FrameMax)
     my->FrameNo = 0;
-  /*¹¶·â*/
+  /*æ”»æ’ƒ*/
   if (my->Cnt2 == 0) {
     if (my->Y > AREA_LY && my->Y < AREA_RY - 100)
       if (rand() % (12 - Root->Stage - Root->StageLoop) == 0)
@@ -179,7 +179,7 @@ RcHitEnum MoveZako(CharacterData *my)
 }
 
 /****************************
-  "¥¿¥ó¥¯"½Ð¸½
+  "ã‚¿ãƒ³ã‚¯"å‡ºç¾
  ****************************/
 void CreateTank(void)
 {
@@ -199,21 +199,21 @@ void CreateTank(void)
 }
 
 /****************************
-  "¥¿¥ó¥¯"°ÜÆ°
+  "ã‚¿ãƒ³ã‚¯"ç§»å‹•
  ****************************/
 RcHitEnum MoveTank(CharacterData *my)
 {
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   my->Y += my->AddY;
   if (my->Y < 0 || my->Y > AREA_RY)
     return RcHitDel;
   
-  if (my->Cnt1 == 0) { /*¤¢¤ëÄøÅÙ²¼¤Ë¤­¤¿¤é¾å²¼¤É¤Á¤é¤«¤Ë°ÜÆ°*/
+  if (my->Cnt1 == 0) { /*ã‚ã‚‹ç¨‹åº¦ä¸‹ã«ããŸã‚‰ä¸Šä¸‹ã©ã¡ã‚‰ã‹ã«ç§»å‹•*/
     if (my->Y > AREA_RY - 200) {
       my->AddY = rand() % 2 ? 1 : -1;
       my->Cnt1 = 1;
     }
-  } else { /*¹¶·â*/
+  } else { /*æ”»æ’ƒ*/
     if (my->Cnt2 == 0) {
       if (rand() % 3 == 0)
         CreateEnemyShot1(my->X + 10, my->Y + 50, 0, 4, 0);
@@ -225,7 +225,7 @@ RcHitEnum MoveTank(CharacterData *my)
 }
 
 /****************************
-  "¥æ¥é¥æ¥é"½Ð¸½
+  "ãƒ¦ãƒ©ãƒ¦ãƒ©"å‡ºç¾
  ****************************/
 void CreateUraura(Sint16 x, Uint8 sel)
 {
@@ -243,13 +243,13 @@ void CreateUraura(Sint16 x, Uint8 sel)
 }
 
 /****************************
-  "¥æ¥é¥æ¥é"°ÜÆ°
+  "ãƒ¦ãƒ©ãƒ¦ãƒ©"ç§»å‹•
  ****************************/
 RcHitEnum MoveUraura(CharacterData *my)
 {
   int i;
 
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   if (my->Cnt3 == 0) {
     my->Cnt1 ++;
     if (my->Cnt1 >= 8)
@@ -263,13 +263,13 @@ RcHitEnum MoveUraura(CharacterData *my)
   my->Y += 4;
   if (my->Y > AREA_RY)
     return RcHitDel;
-  /*¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+  /*ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
   my->FrameNo = (my->Cnt1 > 4 ? 0 :
 		 my->Cnt1 > 0 ? 1 :
 		 my->Cnt1 < -4 ? 4 :
 		 my->Cnt1 < 0 ? 3 :
 		 2);
-  /*¹¶·â*/
+  /*æ”»æ’ƒ*/
   if (my->Cnt2 == 0) {
     if (rand() % 3 == 0)
       if (my->Y > AREA_LY && my->Y < AREA_RY - 50)
@@ -284,7 +284,7 @@ RcHitEnum MoveUraura(CharacterData *my)
 }
 
 /****************************
-  "¥¸¥ï"½Ð¸½
+  "ã‚¸ãƒ¯"å‡ºç¾
  ****************************/
 void CreateJiwa(Sint16 x, Sint16 y, Uint16 dir)
 {
@@ -302,21 +302,21 @@ void CreateJiwa(Sint16 x, Sint16 y, Uint16 dir)
 }
 
 /****************************
-  "¥¸¥ï"°ÜÆ°
+  "ã‚¸ãƒ¯"ç§»å‹•
  ****************************/
 RcHitEnum MoveJiwa(CharacterData *my)
 {
   int no[] = {0,1,0,1,2,1,0,1,2,3};
   
   my->FrameNo = no[my->Cnt1];
-  if (my->Cnt1 < 9) /*¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+  if (my->Cnt1 < 9) /*ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
     my->Cnt1 ++;
   else {
-    /*ºÂÉ¸·×»»*/
+    /*åº§æ¨™è¨ˆç®—*/
     my->X += my->Cnt3;
     if (my->X < 0 || my->X > AREA_RX)
       return RcHitDel;
-    /*¹¶·â*/
+    /*æ”»æ’ƒ*/
     if (my->Cnt2 == 0) {
       if (my->X > AREA_LX && my->X < AREA_RX - my->Spr[0]->Image->Width)
         CreateEnemyShot1(my->X + my->Spr[0]->Image->Width / 2,
@@ -330,7 +330,7 @@ RcHitEnum MoveJiwa(CharacterData *my)
 }
 
 /****************************
-  HP¤¬Ìµ¤¯¤Ê¤Ã¤¿¤éÇúÈ¯¤¹¤ë
+  HPãŒç„¡ããªã£ãŸã‚‰çˆ†ç™ºã™ã‚‹
  ****************************/
 RcHitEnum HitEnemyToHoudai(CharacterData *my, CharacterData *your)
 {
@@ -341,7 +341,7 @@ RcHitEnum HitEnemyToHoudai(CharacterData *my, CharacterData *your)
     my->Target = AttrNone;
     my->FrameNo = my->FrameMax - 1;
     KXL_PlaySound(SE_BOMB, KXL_SOUND_PLAY);
-    /*ÇúÈ¯*/
+    /*çˆ†ç™º*/
     Cchr.Attr     = AttrNone;
     Cchr.Target   = AttrNone;
     Cchr.X        = (my->X + my->Spr[0]->Image->Width / 2)
@@ -356,7 +356,7 @@ RcHitEnum HitEnemyToHoudai(CharacterData *my, CharacterData *your)
 }
 
 /****************************
-  "Ë¤Âæ"½Ð¸½
+  "ç ²å°"å‡ºç¾
  ****************************/
 void CreateHoudai(Sint16 x, Uint16 dir, Uint8 speed)
 {
@@ -373,22 +373,22 @@ void CreateHoudai(Sint16 x, Uint16 dir, Uint8 speed)
 }
 
 /****************************
-  "Ë¤Âæ"°ÜÆ°
+  "ç ²å°"ç§»å‹•
  ****************************/
 RcHitEnum MoveHoudai(CharacterData *my)
 {
   int i;
 
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   if (++ my->Y > AREA_RY)
     return RcHitDel;
   
   if (my->Attr == AttrNone)
     return RcHitNone;
 
-  /*¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+  /*ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
   my->FrameNo = GetFrameNo(GetDirection(my , &(Root->My[0]->Chr)));
-  /*¹¶·â*/
+  /*æ”»æ’ƒ*/
   if (my->Cnt2 == 0) {
     if (my->Y > AREA_LY && my->Y < AREA_RY - 50)
       if (rand() % (5 - Root->StageLoop) == 0)
@@ -404,7 +404,7 @@ RcHitEnum MoveHoudai(CharacterData *my)
 }
 
 /****************************
-  "U¥¿¡¼¥ó"½Ð¸½
+  "Uã‚¿ãƒ¼ãƒ³"å‡ºç¾
  ****************************/
 void CreateUturn(Sint16 x)
 {
@@ -421,7 +421,7 @@ void CreateUturn(Sint16 x)
 }
 
 /****************************
-  "U¥¿¡¼¥ó"°ÜÆ°
+  "Uã‚¿ãƒ¼ãƒ³"ç§»å‹•
  ****************************/
 RcHitEnum MoveUturn(CharacterData *my)
 {
@@ -429,16 +429,16 @@ RcHitEnum MoveUturn(CharacterData *my)
   int spd[] = {24,24,24,24,24,24,24,24,24,24,24,24,24,24,16,16,8,0,-8,-8,-16,-16,-24};
   int no[] =  {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,3, 4, 5, 6, 6, 6};
 
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   my->Y += spd[my->Cnt1];
   if (my->Y > AREA_RY || my->Y < 0)
     return RcHitDel;
 
-  /*¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+  /*ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
   my->FrameNo = no[my->Cnt1];
   if (my->Cnt1 < 22)
     my->Cnt1 ++;
-  /*¹¶·â*/
+  /*æ”»æ’ƒ*/
   if (my->Cnt1 >= 16 && my->Cnt1 <= 18) {
     if (rand() % 2 > 0)
       if (my->Y > AREA_LY && my->Y < AREA_RY - 50)
@@ -454,7 +454,7 @@ RcHitEnum MoveUturn(CharacterData *my)
 }
 
 /****************************
-  "¤¯¤ë¤¯¤ë"½Ð¸½
+  "ãã‚‹ãã‚‹"å‡ºç¾
  ****************************/
 void CreateKuru(void)
 {
@@ -475,25 +475,25 @@ void CreateKuru(void)
 }
 
 /****************************
-  "¤¯¤ë¤¯¤ë"°ÜÆ°
+  "ãã‚‹ãã‚‹"ç§»å‹•
  ****************************/
 RcHitEnum MoveKuru(CharacterData *my)
 {
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   my->X += my->AddX;
   my->Y += my->AddY;
   if (my->Y < 0 || my->Y > AREA_RY || my->X < 0 || my->X > AREA_RX)
     return RcHitDel;
   
-  if (my->Cnt1 == 0) { /*²èÌÌ²¼¤Þ¤Ç°ÜÆ°*/
+  if (my->Cnt1 == 0) { /*ç”»é¢ä¸‹ã¾ã§ç§»å‹•*/
     if (my->Y > AREA_RY - 200 - my->Cnt3) {
       my->AddX = ((rand() % 3) - 1) * 2;
       my->AddY = -4;
       my->Cnt1 = 1;
     }
-  } else { /*¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+  } else { /*ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
     my->FrameNo = GetFrameNo(GetDirection(my, &(Root->My[0]->Chr)));
-    /*¹¶·â*/
+    /*æ”»æ’ƒ*/
     if (my->Cnt2 == 0) {
       if (rand() % 30 > (20 + Root->StageLoop))
         CreateEnemyShot2(my->X + my->Spr[0]->Image->Width / 2,
@@ -510,7 +510,7 @@ RcHitEnum MoveKuru(CharacterData *my)
 }
 
 /****************************
-  "Ãæ¥Ü¥¹"½Ð¸½
+  "ä¸­ãƒœã‚¹"å‡ºç¾
  ****************************/
 void CreateMiddleBoss(void)
 {
@@ -529,13 +529,13 @@ void CreateMiddleBoss(void)
 }
 
 /****************************
-  "Ãæ¥Ü¥¹"°ÜÆ°
+  "ä¸­ãƒœã‚¹"ç§»å‹•
  ****************************/
 RcHitEnum MoveMiddleBoss(CharacterData *my)
 {
   int i;
 
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   my->X += my->AddX;
   my->Y += my->AddY;
   if (my->Cnt1 == 0)
@@ -550,7 +550,7 @@ RcHitEnum MoveMiddleBoss(CharacterData *my)
   if (my->Y > AREA_LY + 100 || my->Y < AREA_LY)
     my->AddY = -(my->AddY);
 
-  /*¹¶·â*/
+  /*æ”»æ’ƒ*/
   my->Cnt2 ++;
   if (my->Cnt2 % 10 == 0) {
     if (rand() % 2) {
@@ -566,7 +566,7 @@ RcHitEnum MoveMiddleBoss(CharacterData *my)
 }
 
 /****************************
-  "¤Á¤ç¤í"½Ð¸½
+  "ã¡ã‚‡ã‚"å‡ºç¾
  ****************************/
 void CreateChoro(Sint16 x)
 {
@@ -586,11 +586,11 @@ void CreateChoro(Sint16 x)
 }
 
 /****************************
-  "¤Á¤ç¤í"°ÜÆ°
+  "ã¡ã‚‡ã‚"ç§»å‹•
  ****************************/
 RcHitEnum MoveChoro(CharacterData *my)
 {
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   GetDirectionAdd(my->Cnt5, &(my->AddX), &(my->AddY), 12);
   KXL_DirectionAdd(my->X, my->CntX, my->AddX);
   KXL_DirectionAdd(my->Y, my->CntY, my->AddY);

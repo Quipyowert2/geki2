@@ -2,7 +2,7 @@
 #include "extern.h"
 
 /**********************
-  Êý³Ñ¤Ë¤è¤ê¥Õ¥ì¡¼¥àÈÖ¹æ¼èÆÀ
+  æ–¹è§’ã«ã‚ˆã‚Šãƒ•ãƒ¬ãƒ¼ãƒ ç•ªå·å–å¾—
  **********************/
 Uint16 GetFrameNo(Sint16 dir)
 {
@@ -17,7 +17,7 @@ Uint16 GetFrameNo(Sint16 dir)
 }
 
 /********************************
-  ¥¤¥á¡¼¥¸ÉÁ²è(¥Õ¥ì¡¼¥à¤¢¤ê)
+  ã‚¤ãƒ¡ãƒ¼ã‚¸æç”»(ãƒ•ãƒ¬ãƒ¼ãƒ ã‚ã‚Š)
 ********************************/
 void DrawPixmapFrame(CharacterData *my)
 {
@@ -25,7 +25,7 @@ void DrawPixmapFrame(CharacterData *my)
 }
 
 /********************************
-  ¥¤¥á¡¼¥¸ÉÁ²è(¥Õ¥ì¡¼¥à¤Ê¤·)
+  ã‚¤ãƒ¡ãƒ¼ã‚¸æç”»(ãƒ•ãƒ¬ãƒ¼ãƒ ãªã—)
 ********************************/
 void DrawPixmap(PixData *my, Sint16 x, Sint16 y)
 {
@@ -33,7 +33,7 @@ void DrawPixmap(PixData *my, Sint16 x, Sint16 y)
 }
 
 /**********************
-  Åö¤¿¤Ã¤¿¤éºÕ¤±¤í
+  å½“ãŸã£ãŸã‚‰ç •ã‘ã‚
  **********************/
 RcHitEnum HitDelete(CharacterData *my, CharacterData *your)
 {
@@ -41,7 +41,7 @@ RcHitEnum HitDelete(CharacterData *my, CharacterData *your)
 }
 
 /**********************
-  Åö¤¿¤Ã¤Æ¤â¤Ø¤Ã¤Á¤ã¤é
+  å½“ãŸã£ã¦ã‚‚ã¸ã£ã¡ã‚ƒã‚‰
  **********************/
 RcHitEnum HitNone(CharacterData *my, CharacterData *your)
 {
@@ -49,7 +49,7 @@ RcHitEnum HitNone(CharacterData *my, CharacterData *your)
 }
 
 /****************************
-  ´ðËÜ°ÜÆ°¡Ê¥Õ¥ì¡¼¥à¤¢¤ê¡Ë
+  åŸºæœ¬ç§»å‹•ï¼ˆãƒ•ãƒ¬ãƒ¼ãƒ ã‚ã‚Šï¼‰
  ****************************/
 RcHitEnum MoveStandard(CharacterData *my)
 {
@@ -66,7 +66,7 @@ RcHitEnum MoveStandard(CharacterData *my)
 }
 
 /****************************
-  ´ðËÜ°ÜÆ°¡Ê¥Õ¥ì¡¼¥à¤Ê¤·¡Ë
+  åŸºæœ¬ç§»å‹•ï¼ˆãƒ•ãƒ¬ãƒ¼ãƒ ãªã—ï¼‰
  ****************************/
 RcHitEnum MoveStandardNoFrame(CharacterData *my)
 {
@@ -81,7 +81,7 @@ RcHitEnum MoveStandardNoFrame(CharacterData *my)
 }
 
 /**********************
-  Áê¼ê¤ÎÊý³Ñ¼èÆÀ
+  ç›¸æ‰‹ã®æ–¹è§’å–å¾—
  **********************/
 Uint16 GetDirection(CharacterData *my, CharacterData *your)
 {
@@ -99,7 +99,7 @@ Uint16 GetDirection(CharacterData *my, CharacterData *your)
 }
 
 /********************************
-  ³ÑÅÙ¤Ë¤è¤ë²Ã»»ÃÍ¼èÆÀ
+  è§’åº¦ã«ã‚ˆã‚‹åŠ ç®—å€¤å–å¾—
 ********************************/
 void GetDirectionAdd(Uint16 direction, Sint16 *ax, Sint16 *ay, Uint16 speed)
 {
@@ -109,7 +109,7 @@ void GetDirectionAdd(Uint16 direction, Sint16 *ax, Sint16 *ay, Uint16 speed)
 }
 
 /********************************
-  ¥¹¥Æ¡¼¥¸¥¯¥ê¥¢&¥²¡¼¥à¥ª¡¼¥Ð¡¼
+  ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¯ãƒªã‚¢&ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼
 ********************************/
 void ClearAndGameOver(void)
 {
@@ -164,33 +164,33 @@ void ClearAndGameOver(void)
 }
 
 /**********************
-  ¥¤¥ó¥Õ¥©¥á¡¼¥·¥ç¥ó
+  ã‚¤ãƒ³ãƒ•ã‚©ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
  **********************/
 void Infomation(void)
 {
   char text[30];
   KXL_Rect r;
 
-  /** ¥¹¥³¥¢ **/
+  /** ã‚¹ã‚³ã‚¢ **/
   sprintf(text, "Score %07lu", Root->Score);
   KXL_Font(NULL, 0xff, 0xff, 0xff);
   KXL_PutText(AREA_LX + 280, AREA_LY + 12, text);
 
-  /** ¥Ï¥¤¥¹¥³¥¢ **/
+  /** ãƒã‚¤ã‚¹ã‚³ã‚¢ **/
   if (Root->Score > Root->HiScore)
     Root->HiScore = Root->Score;
   sprintf(text, "Hi-Score %07lu", Root->HiScore);
   KXL_PutText(AREA_LX + 60, AREA_LY + 12, text);
 
-  /** ¥¹¥Æ¡¼¥¸ **/
+  /** ã‚¹ãƒ†ãƒ¼ã‚¸ **/
   sprintf(text, "Stage %d", Root->Stage + 1);
   KXL_PutText(AREA_LX + 180,AREA_RY - 4, text);
 
-  /** ¥ë¡¼¥× **/
+  /** ãƒ«ãƒ¼ãƒ— **/
   sprintf(text, "Loop %d", Root->StageLoop + 1);
   KXL_PutText(AREA_LX + 300,AREA_RY - 4, text);
 
-  /** ¼åµ¡ **/
+  /** å¼±æ©Ÿ **/
   sprintf(text, "Left %d", Root->MyMax);
   KXL_PutText(AREA_LX + 60, AREA_RY - 4, text);
 }

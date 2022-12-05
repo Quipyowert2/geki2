@@ -2,7 +2,7 @@
 #include "extern.h"
 
 /****************************
-  ¼«Ê¬¤ÎÉğ´ï°ÜÆ°
+  è‡ªåˆ†ã®æ­¦å™¨ç§»å‹•
  ****************************/
 RcHitEnum MoveMyShot(CharacterData *my)
 {
@@ -29,23 +29,23 @@ RcHitEnum MoveMyShot(CharacterData *my)
 }
 
 /****************************
-  ¼«Ê¬¤ÎÉğ´ïÅö¤¿¤ê
+  è‡ªåˆ†ã®æ­¦å™¨å½“ãŸã‚Š
  ****************************/
 RcHitEnum HitMyShot(CharacterData *my, CharacterData *your)
 {
-  if (my->Spr == PixMyLaser) /*¥ì¡¼¥¶¡¼¤Ï¾Ã¤¨¤ë*/
+  if (my->Spr == PixMyLaser) /*ãƒ¬ãƒ¼ã‚¶ãƒ¼ã¯æ¶ˆãˆã‚‹*/
     return RcHitDel;
-  else if (my->Spr == PixMyShot) { /*¥·¥ç¥Ã¥È¤Ï¥¢¥Ë¥á¤ò¤·¤Æ¾Ã¤¨¤ë*/
+  else if (my->Spr == PixMyShot) { /*ã‚·ãƒ§ãƒƒãƒˆã¯ã‚¢ãƒ‹ãƒ¡ã‚’ã—ã¦æ¶ˆãˆã‚‹*/
     my->Attr = AttrNone;
     my->Target = AttrNone;
     my->FrameNo = 1;
     my->Cnt1 = 1;
-  } /*¥Õ¥é¥Ã¥·¥å¤ÏÌµÅ¨*/
+  } /*ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ã¯ç„¡æ•µ*/
   return RcHitNone;
 }
 
 /****************************
-  ¼«Ê¬¥·¥ç¥Ã¥ÈºîÀ®
+  è‡ªåˆ†ã‚·ãƒ§ãƒƒãƒˆä½œæˆ
  ****************************/
 void CreateMyWeaponShot(Sint16 x, Sint16 y, Uint16 dir, Uint8 no)
 {
@@ -63,7 +63,7 @@ void CreateMyWeaponShot(Sint16 x, Sint16 y, Uint16 dir, Uint8 no)
 }
 
 /****************************
-  ¼«Ê¬¥ì¡¼¥¶¡¼ºîÀ®
+  è‡ªåˆ†ãƒ¬ãƒ¼ã‚¶ãƒ¼ä½œæˆ
  ****************************/ 
 void CreateMyWeaponLaser(Sint16 x, Sint16 y, Uint16 dir, Uint8 no)
 {
@@ -81,7 +81,7 @@ void CreateMyWeaponLaser(Sint16 x, Sint16 y, Uint16 dir, Uint8 no)
 }
 
 /****************************
-  ¼«Ê¬¥Õ¥é¥Ã¥·¥åºîÀ®
+  è‡ªåˆ†ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ä½œæˆ
  ****************************/ 
 void CreateMyWeaponFlash(Sint16 x, Sint16 y, Uint16 dir)
 {
@@ -99,33 +99,33 @@ void CreateMyWeaponFlash(Sint16 x, Sint16 y, Uint16 dir)
 }
 
 /****************************
-  ¼«Ê¬°ÜÆ°
+  è‡ªåˆ†ç§»å‹•
  ****************************/
 RcHitEnum MoveMy(CharacterData *my)
 {
   static int mcnt = 0;
   Sint16 sx, sy, i;
 
-  /** ¥İ¡¼¥º¥Á¥§¥Ã¥¯ **/
+  /** ãƒãƒ¼ã‚ºãƒã‚§ãƒƒã‚¯ **/
   if (Root->Key & KPause) {
     if (Root->MainFlag == MainGame) {
       Root->MainFlag = MainPause;
       return RcHitNone;
     }
   }
-  /** ±¦¤Ë°ÜÆ° **/
+  /** å³ã«ç§»å‹• **/
   if (Root->Key & KRight)
     my->X += my->AddX;
-  /** º¸¤Ë°ÜÆ° **/
+  /** å·¦ã«ç§»å‹• **/
   if (Root->Key & KLeft)
     my->X -= my->AddX;
-  /** ¾å¤Ë°ÜÆ° **/
+  /** ä¸Šã«ç§»å‹• **/
   if (Root->Key & KUp)
     my->Y -= my->AddY;
-  /** ²¼¤Ë°ÜÆ° **/
+  /** ä¸‹ã«ç§»å‹• **/
   if (Root->Key & KDown)
     my->Y += my->AddY;
-  /** °ÜÆ°ÈÏ°Ï¥Á¥§¥Ã¥¯ **/
+  /** ç§»å‹•ç¯„å›²ãƒã‚§ãƒƒã‚¯ **/
   if (my->X < AREA_LX)
     my->X = AREA_LX;
   else if (my->X > AREA_RX - my->Spr[0]->Image->Width)
@@ -134,27 +134,27 @@ RcHitEnum MoveMy(CharacterData *my)
     my->Y = AREA_LY + 20;
   else if (my->Y > AREA_RY - my->Spr[0]->Image->Height - 20)
     my->Y = AREA_RY - my->Spr[0]->Image->Height - 20;
-  /** ¥Õ¥ì¡¼¥à¥Á¥§¥Ã¥¯ **/
+  /** ãƒ•ãƒ¬ãƒ¼ãƒ ãƒã‚§ãƒƒã‚¯ **/
   my->FrameNo = 0;
 
   if (my->Cnt1 > 0) {
     if (my->Cnt1 > 30) {
-      /** Â®¤¤ÅÀÌÇ **/
+      /** é€Ÿã„ç‚¹æ»… **/
       if (my->Cnt1 % 2) {
 	my->FrameNo = 1;
       }
     } else {
-      /** ÃÙ¤¤ÅÀÌÇ **/
+      /** é…ã„ç‚¹æ»… **/
       if (my->Cnt1 % 4 == 0) {
 	my->FrameNo = 1;
       }
     }
-    /** ÌµÅ¨½ªÎ»¥Á¥§¥Ã¥¯ **/
+    /** ç„¡æ•µçµ‚äº†ãƒã‚§ãƒƒã‚¯ **/
     if (-- my->Cnt1 == 0)
       Root->My[0]->Chr.Target = AttrEnemy | AttrEShot | AttrItem;
   }
 
-  /** ¥Õ¥é¥Ã¥·¥å **/
+  /** ãƒ•ãƒ©ãƒƒã‚·ãƒ¥ **/
   if (Root->MyFlash == True) {
     sx = my->X - 1 + my->Spr[my->FrameNo]->Image->Width / 2;
     sy = my->Y - 1 + my->Spr[my->FrameNo]->Image->Height / 2;
@@ -162,12 +162,12 @@ RcHitEnum MoveMy(CharacterData *my)
       CreateMyWeaponFlash(sx, sy, i);
     Root->MyFlash = False;
   }
-  /** Éğ´ïÈ¯¼Í **/
+  /** æ­¦å™¨ç™ºå°„ **/
   if (Root->Key & KShot) {
     if (my->Cnt2 == 0) {
       sx = my->X - 1 + my->Spr[my->FrameNo]->Image->Width / 2;
       sy = my->Y + 16;
-      if (Root->MyWeapon == WeaponShot) { /*¥·¥ç¥Ã¥È*/
+      if (Root->MyWeapon == WeaponShot) { /*ã‚·ãƒ§ãƒƒãƒˆ*/
         if (!Root->MyPower)
           CreateMyWeaponShot(sx - PixMyShot[0]->Image->Width / 2, sy, 180, 0);
         sy += 6;
@@ -184,7 +184,7 @@ RcHitEnum MoveMy(CharacterData *my)
           CreateMyWeaponShot(sx +  5, sy, 180 - 45, 0);
         }
         my->Cnt2 = 3;
-      } else { /*¥ì¡¼¥¶¡¼*/
+      } else { /*ãƒ¬ãƒ¼ã‚¶ãƒ¼*/
         CreateMyWeaponLaser(sx - PixMyLaser[Root->MyPower]->Image->Width / 2, sy, 180, Root->MyPower);
         my->Cnt2 = 2;
       }
@@ -196,7 +196,7 @@ RcHitEnum MoveMy(CharacterData *my)
 }
 
 /****************************
-  ¼«Ê¬ºîÀ®
+  è‡ªåˆ†ä½œæˆ
  ****************************/
 void ReCreateMy(void) {
   Root->My[0]->Chr.Attr    = AttrMy | AttrShadow;
@@ -212,7 +212,7 @@ void ReCreateMy(void) {
 }
 
 /****************************
-  ¼«Ê¬ÇúÈ¯
+  è‡ªåˆ†çˆ†ç™º
  ****************************/
 RcHitEnum MoveMyBomb(CharacterData *my)
 {
@@ -223,12 +223,12 @@ RcHitEnum MoveMyBomb(CharacterData *my)
     my->Cnt1 ++;
     return RcHitNone;
   } else {
-    if (-- Root->MyMax >= 0) { /*»Äµ¡¤¢¤ê*/
-      if (Root->MyPower) /*Éğ´ï¤Î¥Ñ¥ï¡¼¥À¥¦¥ó*/
+    if (-- Root->MyMax >= 0) { /*æ®‹æ©Ÿã‚ã‚Š*/
+      if (Root->MyPower) /*æ­¦å™¨ã®ãƒ‘ãƒ¯ãƒ¼ãƒ€ã‚¦ãƒ³*/
         Root->MyPower --;
       ReCreateMy();
-    } else { /*»Äµ¡¤Ê¤·*/
-      /*¥²¡¼¥à¥ª¡¼¥Ğ¡¼*/
+    } else { /*æ®‹æ©Ÿãªã—*/
+      /*ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼*/
       Root->MyMax = 0;
       Root->Cnt = 0;
       Root->MainFlag = MainGameOver;
@@ -239,30 +239,30 @@ RcHitEnum MoveMyBomb(CharacterData *my)
 }
 
 /****************************
-  ¼«Ê¬Åö¤ê
+  è‡ªåˆ†å½“ã‚Š
  ****************************/
 RcHitEnum HitMy(CharacterData *my, CharacterData *your)
 {
-  if (your->Attr & AttrItem) { /*¥¢¥¤¥Æ¥à¤ËÅö¤¿¤Ã¤¿*/
+  if (your->Attr & AttrItem) { /*ã‚¢ã‚¤ãƒ†ãƒ ã«å½“ãŸã£ãŸ*/
     KXL_PlaySound(SE_POW, KXL_SOUND_PLAY);
-    if (your->Spr == PixItemLaser) { /*¥ì¡¼¥¶¡¼¤ËÅö¤¿¤Ã¤¿*/
-      if (Root->MyWeapon == WeaponLaser) { /*¸½ºß¤ÎÉğ´ï¤Ï¥ì¡¼¥¶¡¼?*/
-        if (Root->MyPower < 3) /*¥Ñ¥ï¡¼¥¢¥Ã¥×*/
+    if (your->Spr == PixItemLaser) { /*ãƒ¬ãƒ¼ã‚¶ãƒ¼ã«å½“ãŸã£ãŸ*/
+      if (Root->MyWeapon == WeaponLaser) { /*ç¾åœ¨ã®æ­¦å™¨ã¯ãƒ¬ãƒ¼ã‚¶ãƒ¼?*/
+        if (Root->MyPower < 3) /*ãƒ‘ãƒ¯ãƒ¼ã‚¢ãƒƒãƒ—*/
           Root->MyPower ++;
-        else                   /*¥Õ¥é¥Ã¥·¥å*/
+        else                   /*ãƒ•ãƒ©ãƒƒã‚·ãƒ¥*/
           Root->MyFlash = True;
-      } else /*¥·¥ç¥Ã¥È¤ËÊÑ¹¹*/
+      } else /*ã‚·ãƒ§ãƒƒãƒˆã«å¤‰æ›´*/
         Root->MyWeapon = WeaponLaser;
     } else {
-      if (Root->MyWeapon == WeaponShot) { /*¸½ºß¤ÎÉğ´ï¤Ï¥·¥ç¥Ã¥È?*/
-        if (Root->MyPower < 3) /*¥Ñ¥ï¡¼¥¢¥Ã¥×*/
+      if (Root->MyWeapon == WeaponShot) { /*ç¾åœ¨ã®æ­¦å™¨ã¯ã‚·ãƒ§ãƒƒãƒˆ?*/
+        if (Root->MyPower < 3) /*ãƒ‘ãƒ¯ãƒ¼ã‚¢ãƒƒãƒ—*/
           Root->MyPower ++;
-        else                   /*¥Õ¥é¥Ã¥·¥å*/
+        else                   /*ãƒ•ãƒ©ãƒƒã‚·ãƒ¥*/
           Root->MyFlash = True;
-      } else /*¥ì¡¼¥¶¡¼¤ËÊÑ¹¹*/
+      } else /*ãƒ¬ãƒ¼ã‚¶ãƒ¼ã«å¤‰æ›´*/
         Root->MyWeapon = WeaponShot;
     }
-  } else if (my->Cnt1 == 0) { /*ÌµÅ¨°Ê³°¤ÏÇúÈ¯½àÈ÷*/
+  } else if (my->Cnt1 == 0) { /*ç„¡æ•µä»¥å¤–ã¯çˆ†ç™ºæº–å‚™*/
     Root->My[0]->Chr.Attr    = AttrNone;
     Root->My[0]->Chr.Target  = AttrNone;
     Root->My[0]->Chr.Spr     = PixBomb1;
@@ -274,7 +274,7 @@ RcHitEnum HitMy(CharacterData *my, CharacterData *your)
 }
 
 /****************************
-  ¼«Ê¬ºîÀ®
+  è‡ªåˆ†ä½œæˆ
  ****************************/
 void CreateMy(void) {
   Uint16 i;

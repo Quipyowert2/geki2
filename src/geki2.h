@@ -22,7 +22,7 @@
 #define KeyShot  KXL_KEY_z
 #define KeyPause KXL_KEY_s
 
-/** ¥­¡¼¥Þ¥¹¥¯ **/
+/** ã‚­ãƒ¼ãƒžã‚¹ã‚¯ **/
 #define KNone      0
 #define KUp        (1L << 0)
 #define KDown      (1L << 1)
@@ -38,7 +38,7 @@
 #define KShotMask  ~KShot
 #define KPauseMask ~KPause
 
-/** ¥­¥ã¥é¥¯¥¿¤Î¼±ÊÌ»Ò**/
+/** ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã®è­˜åˆ¥å­**/
 #define AttrNone     0
 #define AttrMy       (1L << 0)
 #define AttrMShot    (1L << 1)
@@ -48,7 +48,7 @@
 #define AttrShadow   (1L << 5)
 #define AttrEBomb    (1L << 6)
 
-/** ¥¦¥£¥ó¥É¥¦¥µ¥¤¥º **/
+/** ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚º **/
 #define DRAW_WIDTH   450
 #define DRAW_HEIGHT  600
 #define FREE_AREA    60
@@ -60,12 +60,12 @@
 #define AREA_RY      (PICT_HEIGHT - FREE_AREA)
 #define CHECK_PER    0.7
 
-/** ³Æ¼ïºÇÂçÃÍ **/
-#define MAX_YOUR    148 /** Å¨&Å¨ÃÆ **/
-#define MAX_MY      48  /** ¥×¥ì¥¤¥ä¡¼&¥×¥ì¥¤¥ä¡¼ÃÆ **/
+/** å„ç¨®æœ€å¤§å€¤ **/
+#define MAX_YOUR    148 /** æ•µ&æ•µå¼¾ **/
+#define MAX_MY      48  /** ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼&ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼å¼¾ **/
 #define BOSS_NO     10
 
-/** ¥µ¥¦¥ó¥É **/
+/** ã‚µã‚¦ãƒ³ãƒ‰ **/
 #define SE_BGM1     0
 #define SE_BGM2     1
 #define SE_BGM3     2
@@ -81,7 +81,7 @@
 #define SE_GO       12
 #define SE_LASER5   13
 
-/** ¥á¥¤¥óÆ°ºî **/
+/** ãƒ¡ã‚¤ãƒ³å‹•ä½œ **/
 typedef enum {
   MainOpening,
   MainGame,
@@ -91,13 +91,13 @@ typedef enum {
   MainPause
 } MainEnum;
 
-/*Éð´ï¼ïÊÌ*/
+/*æ­¦å™¨ç¨®åˆ¥*/
 typedef enum {
   WeaponShot,
   WeaponLaser
 } WeaponEnum;
 
-/*°ÜÆ°¸å¤ÎÌá¤êÃÍ*/
+/*ç§»å‹•å¾Œã®æˆ»ã‚Šå€¤*/
 typedef enum {
   RcHitNone,
   RcHitDel,
@@ -105,24 +105,24 @@ typedef enum {
   RcHitBoss
 } RcHitEnum;
 
-/*¥²¡¼¥à¥â¡¼¥É*/
+/*ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰*/
 typedef enum {
   ModeEasy,
   ModeNormal,
   ModeHard
 } ModeEnum;
 
-/** ¥Ô¥Ã¥¯¥¹¾ðÊó **/
+/** ãƒ”ãƒƒã‚¯ã‚¹æƒ…å ± **/
 typedef struct {
   KXL_Image *Image;
   KXL_Rect r;
 } PixData;
 
-/** ¥­¥ã¥é¥¯¥¿¥Ç¡¼¥¿ **/
+/** ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ‡ãƒ¼ã‚¿ **/
 typedef struct {
-  Bool   Active;                  /** É½¼¨²Ä? **/
-  Uint16 Attr;                    /** ¼±ÊÌ»Ò **/
-  Uint16 Target;                  /** ¥¿¡¼¥²¥Ã¥È **/
+  Bool   Active;                  /** è¡¨ç¤ºå¯? **/
+  Uint16 Attr;                    /** è­˜åˆ¥å­ **/
+  Uint16 Target;                  /** ã‚¿ãƒ¼ã‚²ãƒƒãƒˆ **/
   Sint16 Cnt1;                    /**  **/
   Sint16 Cnt2;                    /**  **/
   Sint16 Cnt3;                    /**  **/
@@ -130,15 +130,15 @@ typedef struct {
   Sint16 Cnt5;                    /**  **/
   Sint16 Etc;
   Sint16 Hp;                      /**  **/
-  Uint32 Score;                   /** ÅÀ¿ô **/
-  Sint16 X, Y;                    /** ¥¹¥×¥é¥¤¥ÈºÂÉ¸ **/
-  Uint32 CntX, CntY;              /** ¥¹¥×¥é¥¤¥È°ÜÆ°ÎÌ **/
-  Sint16 AddX, AddY;              /** ¥¹¥×¥é¥¤¥È°ÜÆ°ÎÌ²Ã»»ÃÍ **/
-  Uint8  FrameNo, FrameMax;       /** ¥¹¥×¥é¥¤¥È¥Õ¥ì¡¼¥à¿ô **/
+  Uint32 Score;                   /** ç‚¹æ•° **/
+  Sint16 X, Y;                    /** ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆåº§æ¨™ **/
+  Uint32 CntX, CntY;              /** ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç§»å‹•é‡ **/
+  Sint16 AddX, AddY;              /** ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆç§»å‹•é‡åŠ ç®—å€¤ **/
+  Uint8  FrameNo, FrameMax;       /** ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆãƒ•ãƒ¬ãƒ¼ãƒ æ•° **/
   PixData **Spr;
 } CharacterData;
 
-/** ÈÆÍÑ¥­¥ã¥é¥¯¥¿¥Ç¡¼¥¿ **/
+/** æ±Žç”¨ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ‡ãƒ¼ã‚¿ **/
 typedef struct {
   CharacterData Chr;
   void (*Draw)(CharacterData *my);
@@ -146,7 +146,7 @@ typedef struct {
   RcHitEnum (*Hit)(CharacterData *my, CharacterData *your);
 } CharacterObject;
 
-/** ´ÉÍýÍÑ **/
+/** ç®¡ç†ç”¨ **/
 typedef struct {
   Uint8 StageMax;
   Uint16 ScrollCnt;
@@ -160,7 +160,7 @@ typedef struct {
   Uint8 Stage;
   Uint8 StageLoop;
   Uint32 Score;
-  Uint32   HiScore;     /*¥Ï¥¤¥¹¥³¥¢*/
+  Uint32   HiScore;     /*ãƒã‚¤ã‚¹ã‚³ã‚¢*/
   Uint32 OneUp;
   Sint8 MyMax;
   Uint8 MyPower;
@@ -173,7 +173,7 @@ typedef struct {
   CharacterObject **Your;
 } RootData;
 
-/*¥é¥ó¥­¥ó¥°*/
+/*ãƒ©ãƒ³ã‚­ãƒ³ã‚°*/
 typedef struct {
   Uint32 Score;
   Uint8 Stage;
@@ -181,12 +181,12 @@ typedef struct {
   char Name[16];
 } RankingData;
 
-/*¥¹¥Æ¡¼¥¸¥Ç¡¼¥¿*/
+/*ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ‡ãƒ¼ã‚¿*/
 typedef struct {
-  Uint16 Time;         /* Å¨½Ð¸½»þ´Ö */ 
-  Uint8  CreateNo;     /* Å¨No. */
-  Uint8  Max;          /* Å¨½Ð¸½²ó¿ô */
-  Uint16 Step;         /* Å¨½Ð¸½´Ö³Ö */
+  Uint16 Time;         /* æ•µå‡ºç¾æ™‚é–“ */ 
+  Uint8  CreateNo;     /* æ•µNo. */
+  Uint8  Max;          /* æ•µå‡ºç¾å›žæ•° */
+  Uint16 Step;         /* æ•µå‡ºç¾é–“éš” */
   Uint16 StepTime;
   Bool Flag;
 } StageData;

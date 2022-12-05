@@ -9,21 +9,21 @@
 #include "extern.h"
 
 /****************************
-  ¥á¥¤¥ó¥ë¡¼¥×(¥¿¥¤¥Ş³ä¹ş¤ß)
+  ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒ—(ã‚¿ã‚¤ãƒå‰²è¾¼ã¿)
  ****************************/
 void MainLoop(void)
 {
   KXL_Rect rect={AREA_LX, AREA_LY, DRAW_WIDTH, DRAW_HEIGHT};
 
   while (1) {
-    /*¥¿¥¤¥Ş³ä¹ş¤ßÂÔ¤Á*/
+    /*ã‚¿ã‚¤ãƒå‰²è¾¼ã¿å¾…ã¡*/
     if (KXL_GetTimer() == False)
       continue;
     KXL_ResetTimer();
-    /*£Ø¥¤¥Ù¥ó¥È½èÍı*/
+    /*ï¼¸ã‚¤ãƒ™ãƒ³ãƒˆå‡¦ç†*/
     while (KXL_CheckEvents()) {
       switch (KXL_GetEvents()) {
-      case KXL_EVENT_KEY_PRESS: /*¥­¡¼²¡¤·¤¿*/
+      case KXL_EVENT_KEY_PRESS: /*ã‚­ãƒ¼æŠ¼ã—ãŸ*/
         switch (KXL_GetKey()) {
         case KeyShot:  Root->Key |= KShot;  break;
         case KeyLeft:  Root->Key |= KLeft;  break;
@@ -34,7 +34,7 @@ void MainLoop(void)
         default:                            break;
         }
         break;
-      case KXL_EVENT_KEY_RELEASE: /*¥­¡¼Î¥¤·¤¿*/
+      case KXL_EVENT_KEY_RELEASE: /*ã‚­ãƒ¼é›¢ã—ãŸ*/
         switch (KXL_GetKey()) {
         case KeyShot:  Root->Key &= KShotMask;  break;
         case KeyLeft:  Root->Key &= KLeftMask;  break;
@@ -49,23 +49,23 @@ void MainLoop(void)
         break;
       }
     }
-    /** ¥á¥¤¥ó¥Õ¥é¥°¥Á¥§¥Ã¥¯ **/
+    /** ãƒ¡ã‚¤ãƒ³ãƒ•ãƒ©ã‚°ãƒã‚§ãƒƒã‚¯ **/
     switch (Root->MainFlag) {
-    case MainPause: /*¥İ¡¼¥º*/
+    case MainPause: /*ãƒãƒ¼ã‚º*/
       Root->MainFlag = (Root->Key & KShot) ? MainGame : MainPause;
       break;
-    case MainOpening: /*¥ª¡¼¥×¥Ë¥ó¥°*/
+    case MainOpening: /*ã‚ªãƒ¼ãƒ—ãƒ‹ãƒ³ã‚°*/
       if (Opening() == True)
         return;
       break;
-    case MainGame: /*¥×¥ì¥¤*/
+    case MainGame: /*ãƒ—ãƒ¬ã‚¤*/
       Game();
       break;
-    case MainClear: /*¥¯¥ê¥¢*/
+    case MainClear: /*ã‚¯ãƒªã‚¢*/
       Game();
       ClearAndGameOver();
       break;
-    case MainGameOver: /*¥²¡¼¥à¥ª¡¼¥Ğ¡¼*/
+    case MainGameOver: /*ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼*/
       Game();
       ClearAndGameOver();
       break;
@@ -77,13 +77,13 @@ void MainLoop(void)
 }
 
 /****************************
-  ¥ë¡¼¥ÈÎÎ°è³ÎÊİ&½é´üÃÍÀßÄê
+  ãƒ«ãƒ¼ãƒˆé ˜åŸŸç¢ºä¿&åˆæœŸå€¤è¨­å®š
  ****************************/
 void CreateRoot(void)
 {
   Uint16 i;
 
-  /** ¥ë¡¼¥ÈÎÎ°è³ÎÊİ **/
+  /** ãƒ«ãƒ¼ãƒˆé ˜åŸŸç¢ºä¿ **/
   Root = (RootData *)KXL_Malloc(sizeof(RootData));
   Root->My = (CharacterObject **)KXL_Malloc(sizeof(CharacterObject *) * MAX_MY);
   for (i = 0; i < MAX_MY; i ++) {
@@ -98,14 +98,14 @@ void CreateRoot(void)
   Ranking = (RankingData **)KXL_Malloc(sizeof(RankingData *) * 5);
   for (i = 0; i < 5; i ++)
     Ranking[i] = (RankingData *)KXL_Malloc(sizeof(RankingData));
-  /** ¥¦¥£¥ó¥É¥¦ºîÀ® **/
+  /** ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ä½œæˆ **/
   KXL_CreateWindow(DRAW_WIDTH,
 		   DRAW_HEIGHT,
 		   TITLE,
 		   KXL_EVENT_KEY_PRESS_MASK |
 		   KXL_EVENT_KEY_RELEASE_MASK);
   KXL_ReSizeFrame(PICT_WIDTH, PICT_HEIGHT);
-  /** ¥ë¡¼¥È½é´üÃÍÀßÄê **/
+  /** ãƒ«ãƒ¼ãƒˆåˆæœŸå€¤è¨­å®š **/
   Root->MainFlag = MainOpening;
   ReadScore();
   Root->Key = KNone;
@@ -116,7 +116,7 @@ void CreateRoot(void)
 }
 
 /****************************
-  ¥ë¡¼¥ÈÎÎ°è²òÊü
+  ãƒ«ãƒ¼ãƒˆé ˜åŸŸè§£æ”¾
  ****************************/
 void DeleteRoot(void)
 {
@@ -136,7 +136,7 @@ void DeleteRoot(void)
 }
 
 /****************************
-      ¥ª¥×¥·¥ç¥ó
+      ã‚ªãƒ—ã‚·ãƒ§ãƒ³
  ****************************/
 void options(int argc, char **argv)
 {
@@ -167,7 +167,7 @@ void options(int argc, char **argv)
 }
 
 /****************************
-      ¥á¥¤¥ó¥ë¡¼¥Á¥ó
+      ãƒ¡ã‚¤ãƒ³ãƒ«ãƒ¼ãƒãƒ³
  ****************************/
 int main(int argc, char **argv)
 {

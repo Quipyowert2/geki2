@@ -4,7 +4,7 @@
 Uint8 no;
 
 /****************************
-  ¥Ü¥¹»àË´
+  ãƒœã‚¹æ­»äº¡
  ****************************/
 RcHitEnum MoveBossEnd(CharacterData *my)
 {
@@ -25,7 +25,7 @@ RcHitEnum MoveBossEnd(CharacterData *my)
 }
 
 /****************************
-  ¥Ü¥¹»àË´ÀßÄê
+  ãƒœã‚¹æ­»äº¡è¨­å®š
  ****************************/
 void CreateBossEnd(void)
 {
@@ -44,7 +44,7 @@ void CreateBossEnd(void)
 }
 
 /****************************
-  ¥Ü¥¹¤ÎÇúÈ¯
+  ãƒœã‚¹ã®çˆ†ç™º
  ****************************/
 RcHitEnum HitEnemyToLargeBomb(CharacterData *my, CharacterData *your)
 {
@@ -69,7 +69,7 @@ RcHitEnum HitEnemyToLargeBomb(CharacterData *my, CharacterData *your)
 }
 
 /****************************
-  ¥Ü¥¹ÀßÄê
+  ãƒœã‚¹è¨­å®š
  ****************************/
 void CreateBoss(void)
 {
@@ -104,7 +104,7 @@ void CreateBoss(void)
 }
 
 /****************************
-  ¥ï¡¼¥Ë¥ó¥°
+  ãƒ¯ãƒ¼ãƒ‹ãƒ³ã‚°
  ****************************/
 RcHitEnum MoveWarning(CharacterData *my)
 {
@@ -124,7 +124,7 @@ RcHitEnum MoveWarning(CharacterData *my)
 }
 
 /****************************
-  ¥ï¡¼¥Ë¥ó¥°
+  ãƒ¯ãƒ¼ãƒ‹ãƒ³ã‚°
  ****************************/
 void CreateWarning(void)
 {
@@ -139,13 +139,13 @@ void CreateWarning(void)
 }
 
 /****************************
-  ¥¹¥Æ¡¼¥¸1¤Î¥Ü¥¹°ÜÆ°
+  ã‚¹ãƒ†ãƒ¼ã‚¸1ã®ãƒœã‚¹ç§»å‹•
  ****************************/
 RcHitEnum MoveBoss1(CharacterData *my)
 {
   Uint16 i;
 
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   if (my->Cnt1 < 100) {
     my->Y += 2;
     my->Cnt1 ++;
@@ -158,40 +158,40 @@ RcHitEnum MoveBoss1(CharacterData *my)
   my->X += my->AddX;
   my->Y += my->AddY;
 
-  /*¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+  /*ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
   my->FrameNo = rand() % my->FrameMax;
-  if (my->Cnt2 == 0) { /*²èÌÌÆâ¤Þ¤Ç°ÜÆ°¸å¡¢±¦¤Ë°ÜÆ°*/
+  if (my->Cnt2 == 0) { /*ç”»é¢å†…ã¾ã§ç§»å‹•å¾Œã€å³ã«ç§»å‹•*/
     if (my->Y > AREA_LY) {
       my->AddX = 4;
       my->AddY = 0;
       my->Cnt2 ++;
     }
-  } else if (my->Cnt2 == 1) { /*²èÌÌ±¦¤Þ¤Ç°ÜÆ°¸å¡¢²¼¤Ë°ÜÆ°*/
+  } else if (my->Cnt2 == 1) { /*ç”»é¢å³ã¾ã§ç§»å‹•å¾Œã€ä¸‹ã«ç§»å‹•*/
     if (my->X > AREA_RX - PixBoss[0]->Image->Width - 4) {
       my->AddX = 0;
       my->AddY = 4;
       my->Cnt2 ++;
     }
-  } else if (my->Cnt2 == 2) { /*²èÌÌ²¼¤Þ¤Ç°ÜÆ°¸å¡¢º¸¤Ë°ÜÆ°*/
+  } else if (my->Cnt2 == 2) { /*ç”»é¢ä¸‹ã¾ã§ç§»å‹•å¾Œã€å·¦ã«ç§»å‹•*/
     if (my->Y > AREA_LY + 160) {
       my->AddX = -4;
       my->AddY = 0;
       my->Cnt2 ++;
     }
-  } else if (my->Cnt2 == 3) { /*²èÌÌº¸¤Þ¤Ç°ÜÆ°¸å¡¢¾å¤Ë°ÜÆ°*/
+  } else if (my->Cnt2 == 3) { /*ç”»é¢å·¦ã¾ã§ç§»å‹•å¾Œã€ä¸Šã«ç§»å‹•*/
     if (my->X < AREA_LX + 4) {
       my->AddX = 0;
       my->AddY = -4;
       my->Cnt2 ++;
     }
-  } else { /*²èÌÌ¾å¤Þ¤Ç°ÜÆ°¸å¡¢±¦¤Ë°ÜÆ°*/
+  } else { /*ç”»é¢ä¸Šã¾ã§ç§»å‹•å¾Œã€å³ã«ç§»å‹•*/
     if (my->Y < AREA_LY + 4) {
       my->AddX = 4;
       my->AddY = 0;
       my->Cnt2 = 1;
     }
   }
-  /*¹¶·â*/
+  /*æ”»æ’ƒ*/
   if (my->Cnt3 == 0) {
     if (rand() % (5 - Root->StageLoop) == 0) {
       for (i = 0; i < 2; i ++) {
@@ -228,13 +228,13 @@ RcHitEnum MoveBoss1(CharacterData *my)
 }
 
 /****************************
-  ¥¹¥Æ¡¼¥¸2¤Î¥Ü¥¹°ÜÆ°
-  º¸±¦¤Ë°ÜÆ°¤¹¤ë
-  »þ¡¹ÊÑ·Á¤·¤ÆÃÆ¤ò´¬¤­»¶¤é¤¹
+  ã‚¹ãƒ†ãƒ¼ã‚¸2ã®ãƒœã‚¹ç§»å‹•
+  å·¦å³ã«ç§»å‹•ã™ã‚‹
+  æ™‚ã€…å¤‰å½¢ã—ã¦å¼¾ã‚’å·»ãæ•£ã‚‰ã™
  ****************************/
 RcHitEnum MoveBoss2(CharacterData *my)
 {
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   if (my->Cnt1 < 100) {
     my->Cnt1 ++;
     my->Y += 2;
@@ -271,7 +271,7 @@ RcHitEnum MoveBoss2(CharacterData *my)
     KXL_PlaySound(SE_OPEN, KXL_SOUND_PLAY);
   }
   if (my->Cnt3) {
-    if (my->Cnt4 < 4) { /*Ë¤Âæ½Ð¸½¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+    if (my->Cnt4 < 4) { /*ç ²å°å‡ºç¾ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
       my->FrameNo += (my->Cnt4 & 1);
       my->Cnt4 ++;
     } else if (my->Cnt4 == 4) {
@@ -286,7 +286,7 @@ RcHitEnum MoveBoss2(CharacterData *my)
 			 6, 0);
       } else
 	my->Cnt4 ++;
-    } else { /*Ë¤Âæ¤ò±£¤¹¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+    } else { /*ç ²å°ã‚’éš ã™ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
       if (my->Cnt4 < 8) {
 	my->FrameNo -= (my->Cnt4 & 1);
 	my->Cnt4 ++;
@@ -301,7 +301,7 @@ RcHitEnum MoveBoss2(CharacterData *my)
 }
 
 /****************************
-  ¥ì¡¼¥¶¡¼ºîÀ®
+  ãƒ¬ãƒ¼ã‚¶ãƒ¼ä½œæˆ
  ****************************/
 void CreateBoss3Laser(int x,int y)
 {
@@ -316,30 +316,30 @@ void CreateBoss3Laser(int x,int y)
 }
 
 /****************************
-  ¥ì¡¼¥¶¡¼°ÜÆ°
+  ãƒ¬ãƒ¼ã‚¶ãƒ¼ç§»å‹•
  ****************************/
 RcHitEnum MoveBoss3Laser(CharacterData *my)
 {
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   my->Y += my->AddY;
   if (my->Y > AREA_RY)
     return RcHitDel;
-  /*¥¢¥Ë¥á¡¼¥·¥ç¥ó*/
+  /*ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³*/
   if (++ my->FrameNo == my->FrameMax)
     my->FrameNo = 0;
-  if (++ my->Cnt1 == 50) /*²èÌÌ²¼¤Þ¤Ç°ÜÆ°*/
+  if (++ my->Cnt1 == 50) /*ç”»é¢ä¸‹ã¾ã§ç§»å‹•*/
     my->AddY = 32;
   return RcHitNone;
 }
 
 /****************************
-  ¥¹¥Æ¡¼¥¸3¤Î¥Ü¥¹°ÜÆ°
+  ã‚¹ãƒ†ãƒ¼ã‚¸3ã®ãƒœã‚¹ç§»å‹•
  ****************************/
 RcHitEnum MoveBoss3(CharacterData *my)
 {
   Sint16 i;
 
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   if (my->Cnt1 < 100) {
     my->Cnt1 ++;
     my->Y += 2;
@@ -397,14 +397,14 @@ RcHitEnum MoveBoss3(CharacterData *my)
 }
 
 /****************************
-  ¥¹¥Æ¡¼¥¸4¤Î¥Ü¥¹°ÜÆ°
-  »þ¡¹ÆÍ¤Ã¹þ¤à
+  ã‚¹ãƒ†ãƒ¼ã‚¸4ã®ãƒœã‚¹ç§»å‹•
+  æ™‚ã€…çªã£è¾¼ã‚€
  ****************************/
 RcHitEnum MoveBoss4(CharacterData *my)
 {
   Sint16 i;
 
-  /*ºÂÉ¸·×»»*/
+  /*åº§æ¨™è¨ˆç®—*/
   if (my->Cnt1 < 100) {
     my->Cnt1 ++;
     my->Y += 2;
@@ -419,7 +419,7 @@ RcHitEnum MoveBoss4(CharacterData *my)
     my->AddX = -(my->AddX);
 
   my->Cnt2 ++;
-  /*¹¶·â*/
+  /*æ”»æ’ƒ*/
   if (rand() % (20 - Root->StageLoop * 2) == 0) {
     for (i = -1; i < 2; i ++) {
       CreateEnemyShot2(my->X + 5 + i * 8,
@@ -485,7 +485,7 @@ RcHitEnum MoveBoss4(CharacterData *my)
 }
 
 /****************************
-  Åö¤¿¤Ã¤¿¤éÃÆ¤ò¤Þ¤­¤Á¤é¤¹
+  å½“ãŸã£ãŸã‚‰å¼¾ã‚’ã¾ãã¡ã‚‰ã™
  ****************************/
 RcHitEnum HitEnemyShotBomb(CharacterData *my, CharacterData *your)
 {
@@ -501,7 +501,7 @@ RcHitEnum HitEnemyShotBomb(CharacterData *my, CharacterData *your)
 }
 
 /****************************
-  ÇúÎöÃÆ
+  çˆ†è£‚å¼¾
  ****************************/
 void CreateEnemyShotBomb(int x, int y, int direction, int speed)
 {
@@ -520,7 +520,7 @@ void CreateEnemyShotBomb(int x, int y, int direction, int speed)
 }
 
 /****************************
-  ¥ì¡¼¥¶¡¼°ÜÆ°
+  ãƒ¬ãƒ¼ã‚¶ãƒ¼ç§»å‹•
  ****************************/
 RcHitEnum MoveBoss5Laser(CharacterData *my)
 {
@@ -532,7 +532,7 @@ RcHitEnum MoveBoss5Laser(CharacterData *my)
 }
 
 /****************************
-  ¥ì¡¼¥¶¡¼ºîÀ®
+  ãƒ¬ãƒ¼ã‚¶ãƒ¼ä½œæˆ
  ****************************/ 
 void CreateBoss5Laser(void)
 {
@@ -546,7 +546,7 @@ void CreateBoss5Laser(void)
 }
 
 /****************************
-  ¥¹¥Æ¡¼¥¸5¤Î¥Ü¥¹°ÜÆ°
+  ã‚¹ãƒ†ãƒ¼ã‚¸5ã®ãƒœã‚¹ç§»å‹•
  ****************************/
 RcHitEnum MoveBoss5(CharacterData *my)
 {
@@ -567,14 +567,14 @@ RcHitEnum MoveBoss5(CharacterData *my)
     my->AddY = -(my->AddY);
 
   my->Cnt2 ++;
-  /*¹¶·â*/
-  if (rand() % 20 == 0) { /*ÇúÎöÃÆÈ¯¼Í*/
+  /*æ”»æ’ƒ*/
+  if (rand() % 20 == 0) { /*çˆ†è£‚å¼¾ç™ºå°„*/
     CreateEnemyShotBomb(my->X + 130,
 			my->Y + 215,
 			(rand() % 360) - 90,
 			4);
   }
-  if (my->Cnt3 == 0 && my->Cnt2 % 100 == 0) { /* ¥Þ¥¸¹¶·â*/
+  if (my->Cnt3 == 0 && my->Cnt2 % 100 == 0) { /* ãƒžã‚¸æ”»æ’ƒ*/
     if (my->Y < AREA_LY + 100) {
       my->Cnt3 = 1;
       my->Cnt4 = 0;
@@ -607,7 +607,7 @@ RcHitEnum MoveBoss5(CharacterData *my)
 }
 
 /****************************
-  ¥¹¥Æ¡¼¥¸6¤Î¥Ü¥¹°ÜÆ°
+  ã‚¹ãƒ†ãƒ¼ã‚¸6ã®ãƒœã‚¹ç§»å‹•
  ****************************/
 RcHitEnum MoveBoss6(CharacterData *my)
 {
@@ -628,14 +628,14 @@ RcHitEnum MoveBoss6(CharacterData *my)
     my->AddY = -(my->AddY);
 
   my->Cnt2 ++;
-  /*¹¶·â*/
-  if (rand() % 15 == 0) { /*ÇúÎöÃÆÈ¯¼Í*/
+  /*æ”»æ’ƒ*/
+  if (rand() % 15 == 0) { /*çˆ†è£‚å¼¾ç™ºå°„*/
     CreateEnemyShotBomb(my->X + 130,
 			my->Y + 215,
 			(rand() % 360) - 90,
 			4);
   }
-  if (my->Cnt3 == 0 && my->Cnt2 % 80 == 0) { /* ¥Þ¥¸¹¶·â*/
+  if (my->Cnt3 == 0 && my->Cnt2 % 80 == 0) { /* ãƒžã‚¸æ”»æ’ƒ*/
     if (my->Y < AREA_LY + 100) {
       my->Cnt3 = 1;
       my->Cnt4 = 0;

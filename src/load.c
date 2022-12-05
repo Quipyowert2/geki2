@@ -10,8 +10,8 @@ void SetPer(PixData *my, float per)
 }
 
 /**********************
-  ¥Ô¥Ã¥¯¥¹¥Ş¥Ã¥×¥í¡¼¥É
-  Ê¬³ä
+  ãƒ”ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰
+  åˆ†å‰²
  **********************/
 PixData **LoadPixmapSplit(const char *fname, Uint8 blend, Uint16 max, float per)
 {
@@ -21,12 +21,12 @@ PixData **LoadPixmapSplit(const char *fname, Uint8 blend, Uint16 max, float per)
   PixData **new;
   KXL_Rect rect;
 
-  /* xpm¥Õ¥¡¥¤¥ëÆÉ¤ß¹ş¤ß */
+  /* xpmãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ */
   sprintf(filename, BMP_PATH "/%s.bmp", fname);
   img = KXL_LoadBitmap(filename, blend);
   w = img->Width / max;
   h = img->Height;
-  /* ¥¤¥á¡¼¥¸¤ÎÊ¬³ä */
+  /* ã‚¤ãƒ¡ãƒ¼ã‚¸ã®åˆ†å‰² */
   new = (PixData **)KXL_Malloc(sizeof(PixData *) * max);
   for (i = 0; i < max; i ++) {
     new[i] = (PixData *)KXL_Malloc(sizeof(PixData));
@@ -37,20 +37,20 @@ PixData **LoadPixmapSplit(const char *fname, Uint8 blend, Uint16 max, float per)
     new[i]->Image = KXL_CopyImage(img, rect);
     SetPer(new[i], per);
   }
-  /* ÆÉ¤ß¹ş¤ßÍÑImage¤ò²òÊü */
+  /* èª­ã¿è¾¼ã¿ç”¨Imageã‚’è§£æ”¾ */
   KXL_DeleteImage(img);
   return new;
 }
 
 /**********************
-  ¥Ô¥Ã¥¯¥¹¥Ş¥Ã¥×¥í¡¼¥É
+  ãƒ”ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰
  **********************/
 PixData *LoadPixmap(const char *fname, Uint8 blend, float per)
 {
   char filename[64];
   PixData *new;
 
-  /* xpm¥Õ¥¡¥¤¥ëÆÉ¤ß¹ş¤ß */
+  /* xpmãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ */
   sprintf(filename, BMP_PATH "/%s.bmp", fname);
   new = (PixData *)KXL_Malloc(sizeof(PixData));
   new->Image = KXL_LoadBitmap(filename, blend);
@@ -59,7 +59,7 @@ PixData *LoadPixmap(const char *fname, Uint8 blend, float per)
 }
 
 /**********************
-  ¥Ô¥Ã¥¯¥¹¥Ş¥Ã¥×¥í¡¼¥É
+  ãƒ”ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ—ãƒ­ãƒ¼ãƒ‰
  **********************/
 PixData **LoadPixmaps(const char *fname, Uint8 blend, Uint16 max, float per)
 {
@@ -76,7 +76,7 @@ PixData **LoadPixmaps(const char *fname, Uint8 blend, Uint16 max, float per)
 }
 
 /**********************
-  ¥Ô¥Ã¥¯¥¹¥Ş¥Ã¥×²òÊü
+  ãƒ”ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ—è§£æ”¾
  **********************/
 void UnLoadPixmap(PixData *my)
 {
@@ -85,7 +85,7 @@ void UnLoadPixmap(PixData *my)
 }
 
 /**********************
-  ¥Ô¥Ã¥¯¥¹¥Ş¥Ã¥×²òÊü
+  ãƒ”ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ—è§£æ”¾
  **********************/
 void UnLoadPixmaps(PixData **my, int max)
 {
@@ -95,7 +95,7 @@ void UnLoadPixmaps(PixData **my, int max)
 }
 
 /**********************
-  ¥Ô¥Ã¥¯¥¹¥Ş¥Ã¥×ºîÀ®
+  ãƒ”ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ—ä½œæˆ
  **********************/
 void CreatePixmap(void)
 {
@@ -128,7 +128,7 @@ void CreatePixmap(void)
 }
 
 /**********************
-  ¥Ô¥Ã¥¯¥¹¥Ş¥Ã¥×ºï½ü
+  ãƒ”ãƒƒã‚¯ã‚¹ãƒãƒƒãƒ—å‰Šé™¤
  **********************/
 void DeletePixmap(void)
 {
@@ -160,7 +160,7 @@ void DeletePixmap(void)
 }
 
 /**********************
-  ¥¹¥Æ¡¼¥¸¥Ç¡¼¥¿ÆÉ¤ß¹ş¤ß
+  ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ‡ãƒ¼ã‚¿èª­ã¿è¾¼ã¿
  **********************/
 void LoadStageData(void)
 {
@@ -170,25 +170,25 @@ void LoadStageData(void)
   Uint8 bossmax[] = {2, 3 * 2, 1 * 2, 1 * 2, 1 * 2, 1 * 2};
   Uint8 backmax[] = {7, 16, 20, 8, 18, 15};
   
-  /* ÇØ·Ê¥Õ¥¡¥¤¥ë¤ò³«¤¯ */
+  /* èƒŒæ™¯ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã */
   sprintf(buff, DATA_PATH "/map%d.dat", Root->Stage + 1);
   if ((fp = fopen(buff,"r")) == NULL) {
     fprintf(stderr, "next stage not found\n");
     fprintf(stderr, "see you next version...\n");
     exit(1);
   }
-  /* ÇØ·Ê¥Ç¡¼¥¿¤òÆÉ¤ß¹ş¤à */
+  /* èƒŒæ™¯ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€ */
   Root->MapMax = 0;
   while (fgets(buff, 255, fp)) {
     if (buff[0] == ';' || buff[0] == '\n')
       continue;
-    /*ÎÎ°è¤ò³ÎÊİ¤¹¤ë*/
+    /*é ˜åŸŸã‚’ç¢ºä¿ã™ã‚‹*/
     if (!Root->MapMax)
       MapDatas = (MapData **)KXL_Malloc(sizeof(MapData *));
     else
       MapDatas = (MapData **)KXL_Realloc(MapDatas, sizeof(MapData *) * (Root->MapMax + 1));
     MapDatas[Root->MapMax] = (MapData *)KXL_Malloc(sizeof(MapData));
-    /*¥Ç¡¼¥¿¼èÆÀ*/
+    /*ãƒ‡ãƒ¼ã‚¿å–å¾—*/
     for (i = 0; i < 9; i ++) {
       if (buff[i] >= '0' && buff[i] <= '9')
         dat = buff[i] - '0';
@@ -200,14 +200,14 @@ void LoadStageData(void)
   }
   fclose(fp);
   
-  /* Å¨½Ğ¸½¥Ç¡¼¥¿¥Õ¥¡¥¤¥ë¤òÆÉ¤ß¹ş¤à */
+  /* æ•µå‡ºç¾ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ */
   sprintf(buff, DATA_PATH "/stage%d.dat", Root->Stage + 1);
   if ((fp = fopen(buff, "r")) == NULL) {
     fprintf(stderr, "next stage not found\n");
     fprintf(stderr, "see you next version...\n");
     exit(1);
   }
-  /* Å¨½Ğ¸½¥Ç¡¼¥¿¤òÆÉ¤ß¹ş¤à */
+  /* æ•µå‡ºç¾ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€ */
   Root->StageMax = 0;
   while(fgets(buff, 255, fp)) {
     if (buff[0] == ';' || buff[0] == '\n')
@@ -227,16 +227,16 @@ void LoadStageData(void)
   }
   fclose(fp);
   
-  /* ¥Ü¥¹¥­¥ã¥é¤òÆÉ¤ß¹ş¤à */
+  /* ãƒœã‚¹ã‚­ãƒ£ãƒ©ã‚’èª­ã¿è¾¼ã‚€ */
   sprintf(buff, "boss%d", Root->Stage + 1);
   PixBoss = LoadPixmapSplit(buff, 0, bossmax[Root->Stage], 0.6);
-  /* ÇØ·Ê¥­¥ã¥é¤òÆÉ¤ß¹ş¤à */
+  /* èƒŒæ™¯ã‚­ãƒ£ãƒ©ã‚’èª­ã¿è¾¼ã‚€ */
   sprintf(buff, "back%d", Root->Stage + 1);
   PixBack = LoadPixmapSplit(buff, 255, backmax[Root->Stage], 0.0);
 }
 
 /**********************
-  ¥¹¥Æ¡¼¥¸¥Ç¡¼¥¿ºï½ü
+  ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ‡ãƒ¼ã‚¿å‰Šé™¤
  **********************/
 void UnLoadStageData()
 {

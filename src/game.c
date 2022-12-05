@@ -2,7 +2,7 @@
 #include "extern.h"
 
 /****************************
-  ¼«Ê¬¥Ç¡¼¥¿ºï½ü
+  è‡ªåˆ†ãƒ‡ãƒ¼ã‚¿å‰Šé™¤
  ****************************/
 Bool DeleteMyData(int m)
 {
@@ -15,7 +15,7 @@ Bool DeleteMyData(int m)
 }
 
 /****************************
-  Å¨¥Ç¡¼¥¿ºï½ü
+  æ•µãƒ‡ãƒ¼ã‚¿å‰Šé™¤
  ****************************/
 Bool DeleteYourData(int y)
 {
@@ -28,7 +28,7 @@ Bool DeleteYourData(int y)
 }
 
 /****************************
-  ¼«Ê¬¥Ç¡¼¥¿ºîÀ®
+  è‡ªåˆ†ãƒ‡ãƒ¼ã‚¿ä½œæˆ
  ****************************/
 Sint16 CopyMyNew(RcHitEnum (*act)(CharacterData *my),
               RcHitEnum (*hit)(CharacterData *my, CharacterData *your),
@@ -58,7 +58,7 @@ Sint16 CopyMyNew(RcHitEnum (*act)(CharacterData *my),
 }
 
 /****************************
-  Å¨¥Ç¡¼¥¿ºîÀ®
+  æ•µãƒ‡ãƒ¼ã‚¿ä½œæˆ
  ****************************/
 Sint16 CopyYourNew(RcHitEnum (*act)(CharacterData *my),
                 RcHitEnum (*hit)(CharacterData *my, CharacterData *your),
@@ -71,15 +71,15 @@ Sint16 CopyYourNew(RcHitEnum (*act)(CharacterData *my),
   if (Root->YourNo >= MAX_YOUR)
     return -1;
   if (Cchr.Attr == AttrEnemy) {
-    /** ÃÏ¾å¤ÎÅ¨ **/
+    /** åœ°ä¸Šã®æ•µ **/
     st = 0;
     ed = st + 10;
   } else if (Cchr.Attr & AttrShadow) {
-    /** ¶õÃæ¤ÎÅ¨ **/
+    /** ç©ºä¸­ã®æ•µ **/
     st = 11;
     ed = st + 30;
   } else if (Cchr.Attr & AttrEShot) {
-    /** ÇúÈ¯ **/
+    /** çˆ†ç™º **/
     st = 71;
     ed = MAX_YOUR;
   }
@@ -103,7 +103,7 @@ Sint16 CopyYourNew(RcHitEnum (*act)(CharacterData *my),
 }
 
 /****************************
-  Å¨¥Ç¡¼¥¿ºï½ü
+  æ•µãƒ‡ãƒ¼ã‚¿å‰Šé™¤
  ****************************/
 void DeleteAll(void)
 {
@@ -124,7 +124,7 @@ void DeleteAll(void)
 }
 
 /****************************
-  Åö¤êÈ½Äê
+  å½“ã‚Šåˆ¤å®š
  ****************************/
 Bool Check(CharacterData *my, CharacterData *your)
 {
@@ -144,14 +144,14 @@ Bool Check(CharacterData *my, CharacterData *your)
 }
 
 /****************************
-  ¥²¡¼¥à¥á¥¤¥ó
+  ã‚²ãƒ¼ãƒ ãƒ¡ã‚¤ãƒ³
  ****************************/
 void Game(void)
 {
   Sint16 i, j, m, y;
   RcHitEnum rc;
   
-  /** ÇØ·Ê¥¹¥¯¥í¡¼¥ë **/
+  /** èƒŒæ™¯ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ« **/
   for (i = 0; i < 13; i++)
     for (j = 0; j < 9; j++)
       DrawPixmap(PixBack[MapDatas[Root->MapNo+i]->no[j]],
@@ -163,7 +163,7 @@ void Game(void)
       Root->ScrollCnt = 0;
     }
   }
-  /** Å¨ÅùÈ¯À¸ **/
+  /** æ•µç­‰ç™ºç”Ÿ **/
   for (i = 0; i < Root->StageMax; i ++) {
     if (Root->EnemyCnt == StageDatas[i]->Time && !StageDatas[i]->Flag) {
       StageDatas[i]->Flag = 1;
@@ -176,33 +176,33 @@ void Game(void)
 	  StageDatas[i]->Max --;
 	  StageDatas[i]->StepTime = StageDatas[i]->Step;
 	  switch (StageDatas[i]->CreateNo) {
-	  case 0: /* ¥ï¡¼¥Ë¥ó¥°½Ğ¸½ */
+	  case 0: /* ãƒ¯ãƒ¼ãƒ‹ãƒ³ã‚°å‡ºç¾ */
             CreateWarning();
             break;
-	  case 1: /* ¥¶¥³ º¸¾å¤«¤é±¦²¼¤Ø */
+	  case 1: /* ã‚¶ã‚³ å·¦ä¸Šã‹ã‚‰å³ä¸‹ã¸ */
 	    CreateZako(AREA_LX,
                        30,
                        8 + Root->StageLoop);
 	    break;
-	  case 2: /* ¥¶¥³ ±¦¾å¤«¤éº¸²¼ */
+	  case 2: /* ã‚¶ã‚³ å³ä¸Šã‹ã‚‰å·¦ä¸‹ */
 	    CreateZako(AREA_RX - PixZako[0]->Image->Width,
                        330,
                        8 + Root->StageLoop);
 	    break;
-	  case 3: /* ¥¶¥³ ¾å¤«¤é²¼¤Ø */
+	  case 3: /* ã‚¶ã‚³ ä¸Šã‹ã‚‰ä¸‹ã¸ */
 	    CreateZako(AREA_LX + 50 + rand() % 300,
                        0,
                        12 + Root->StageLoop+(rand() % 4));
 	    break;
-	  case 4: /* ¥æ¥é¥æ¥é º¸¾å¤«¤éº¸²¼¤Ø */
+	  case 4: /* ãƒ¦ãƒ©ãƒ¦ãƒ© å·¦ä¸Šã‹ã‚‰å·¦ä¸‹ã¸ */
 	    CreateUraura(AREA_LX + rand() % 150,
                          0);
 	    break;
-	  case 5: /* ¥æ¥é¥æ¥é ±¦¾å¤«¤é±¦²¼¤Ø */
+	  case 5: /* ãƒ¦ãƒ©ãƒ¦ãƒ© å³ä¸Šã‹ã‚‰å³ä¸‹ã¸ */
 	    CreateUraura(AREA_RX - 50 - rand() % 150,
                          1);
 	    break;
-	  case 6: /* ¥¸¥ï º¸±¦¤«¤é */
+	  case 6: /* ã‚¸ãƒ¯ å·¦å³ã‹ã‚‰ */
 	    for (j = 0; j < 5; j ++) {
 	      CreateJiwa(AREA_LX + j * PixJiwa[0]->Image->Width,
                          AREA_LY + j * PixJiwa[0]->Image->Height,
@@ -212,24 +212,24 @@ void Game(void)
                          -10);
 	    }
 	    break;
-	  case 7: /* Ë¤Âæ */
+	  case 7: /* ç ²å° */
 	    CreateHoudai(AREA_LX + 30 + (rand() % 4) * 90,
                          0,
                          1 + Root->StageLoop + (rand() % 1));
 	    break;
-	  case 8: /* U¥¿¡¼¥ó */
+	  case 8: /* Uã‚¿ãƒ¼ãƒ³ */
 	    CreateUturn(AREA_LX + 50 + rand() % 300);
 	    break;
-	  case 9: /* ¤¯¤ë¤¯¤ë */
+	  case 9: /* ãã‚‹ãã‚‹ */
 	    CreateKuru();
 	    break;
-	  case 10: /* Ãæ¥Ü¥¹ */
+	  case 10: /* ä¸­ãƒœã‚¹ */
 	    CreateMiddleBoss();
 	    break;
-	  case 11: /* ¤Á¤ç¤í */
+	  case 11: /* ã¡ã‚‡ã‚ */
 	    CreateChoro(AREA_LX + 50 + rand() % 300);
 	    break;
-	  case 90: /* ¥¢¥¤¥Æ¥à */
+	  case 90: /* ã‚¢ã‚¤ãƒ†ãƒ  */
 	    CreateTank();
 	    break;
 	  }
@@ -238,12 +238,12 @@ void Game(void)
     }
   }
   Root->EnemyCnt ++;
-  /** ¼«Ê¬°ÜÆ° **/
+  /** è‡ªåˆ†ç§»å‹• **/
   for (m = 0; m < MAX_MY; m ++)
     if (Root->My[m]->Chr.Active == True)
       if ((rc = Root->My[m]->Move(&(Root->My[m]->Chr))) == RcHitDel)
         DeleteMyData(m);
-  /** Å¨°ÜÆ° **/
+  /** æ•µç§»å‹• **/
   for (y = 0; y < MAX_YOUR; y ++) {
     if (Root->Your[y]->Chr.Active == False)
       continue;
@@ -260,7 +260,7 @@ void Game(void)
       break;
     }
   }
-  /** Åö¤êÈ½Äê **/
+  /** å½“ã‚Šåˆ¤å®š **/
   for (m = 0; m < MAX_MY; m ++) {
     if (Root->My[m]->Chr.Active == False)
       continue;
@@ -285,30 +285,30 @@ void Game(void)
       }
     }
   }
-  /** Áê¼ê¤Î±Æ°ÜÆ°&ÉÁ²è **/
+  /** ç›¸æ‰‹ã®å½±ç§»å‹•&æç”» **/
   for (y = 0; y < MAX_YOUR; y ++)
    if (Root->Your[y]->Chr.Active == True && Root->Your[y]->Chr.Attr & AttrShadow)
      DrawPixmap(Root->Your[y]->Chr.Spr[Root->Your[y]->Chr.FrameMax + Root->Your[y]->Chr.FrameNo],
                 Root->Your[y]->Chr.X + Root->Your[y]->Chr.Spr[0]->Image->Width,
                 Root->Your[y]->Chr.Y + Root->Your[y]->Chr.Spr[0]->Image->Height / 2);
-  /** ¼«Ê¬¤Î±Æ°ÜÆ°&ÉÁ²è **/
+  /** è‡ªåˆ†ã®å½±ç§»å‹•&æç”» **/
   if (Root->My[0]->Chr.Attr & AttrShadow)
     DrawPixmap(Root->My[0]->Chr.Spr[Root->My[0]->Chr.FrameMax + Root->My[0]->Chr.FrameNo],
                Root->My[0]->Chr.X + Root->My[0]->Chr.Spr[0]->Image->Width,
                Root->My[0]->Chr.Y + Root->My[0]->Chr.Spr[0]->Image->Height / 2);
-  /** Áê¼êÉÁ²è **/
+  /** ç›¸æ‰‹æç”» **/
   for (y = 0; y < MAX_YOUR; y ++)
    if (Root->Your[y]->Chr.Active == True)
      Root->Your[y]->Draw(&(Root->Your[y]->Chr));
-  /** ¼«Ê¬ÉÁ²è **/
+  /** è‡ªåˆ†æç”» **/
   for (m = MAX_MY - 1; m >= 0; m --)
     if (Root->My[m]->Chr.Active == True)
       Root->My[m]->Draw(&(Root->My[m]->Chr));
-  /* ¥¹¥³¥¢¥Á¥§¥Ã¥¯ */
+  /* ã‚¹ã‚³ã‚¢ãƒã‚§ãƒƒã‚¯ */
   if (Root->Score >= Root->OneUp) {
     Root->MyMax ++;
     Root->OneUp += 10000;
   }
-  /*¥¤¥ó¥Õ¥©¥á¡¼¥·¥ç¥óÉÁ²è*/
+  /*ã‚¤ãƒ³ãƒ•ã‚©ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³æç”»*/
   Infomation();
 }
