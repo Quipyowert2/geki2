@@ -1,5 +1,6 @@
 #include "geki2.h"
 #include "extern.h"
+#include <linux/limits.h> /* for PATH_MAX */
 
 void SetPer(PixData *my, float per)
 {
@@ -15,14 +16,14 @@ void SetPer(PixData *my, float per)
  **********************/
 PixData **LoadPixmapSplit(const char *fname, Uint8 blend, Uint16 max, float per)
 {
-  char filename[64];
+  char filename[PATH_MAX];
   Uint16 w, h, i;
   KXL_Image *img;
   PixData **new;
   KXL_Rect rect;
 
   /* xpmファイル読み込み */
-  sprintf(filename, BMP_PATH "/%s.bmp", fname);
+  snprintf(filename, sizeof(filename), BMP_PATH "/%s.bmp", fname);
   img = KXL_LoadBitmap(filename, blend);
   w = img->Width / max;
   h = img->Height;
@@ -47,11 +48,11 @@ PixData **LoadPixmapSplit(const char *fname, Uint8 blend, Uint16 max, float per)
  **********************/
 PixData *LoadPixmap(const char *fname, Uint8 blend, float per)
 {
-  char filename[64];
+  char filename[PATH_MAX];
   PixData *new;
 
   /* xpmファイル読み込み */
-  sprintf(filename, BMP_PATH "/%s.bmp", fname);
+  snprintf(filename, sizeof(filename), BMP_PATH "/%s.bmp", fname);
   new = (PixData *)KXL_Malloc(sizeof(PixData));
   new->Image = KXL_LoadBitmap(filename, blend);
   SetPer(new, per);
@@ -64,12 +65,12 @@ PixData *LoadPixmap(const char *fname, Uint8 blend, float per)
 PixData **LoadPixmaps(const char *fname, Uint8 blend, Uint16 max, float per)
 {
   PixData **new;
-  char filename[64];
+  char filename[PATH_MAX];
   Uint16 i;
 
   new = (PixData **)KXL_Malloc(sizeof(PixData *) * max);
   for (i = 0; i < max; i ++) {
-    sprintf(filename, "%s%d", fname, i + 1);
+    snprintf(filename, sizeof(filename), "%s%d", fname, i + 1);
     new[i] = LoadPixmap(filename, blend, per);
   }
   return new;
@@ -165,13 +166,13 @@ void DeletePixmap(void)
 void LoadStageData(void)
 {
   FILE *fp;
-  char buff[256];
+  char buff[PATH_MAX];
   Sint16 dat, i;
   Uint8 bossmax[] = {2, 3 * 2, 1 * 2, 1 * 2, 1 * 2, 1 * 2};
   Uint8 backmax[] = {7, 16, 20, 8, 18, 15};
   
   /* 背景ファイルを開く */
-  sprintf(buff, DATA_PATH "/map%d.dat", Root->Stage + 1);
+  snprintf(buff, sizeof(buff), DATA_PATH "/map%d.dat", Root->Stage + 1);
   if ((fp = fopen(buff,"r")) == NULL) {
     fprintf(stderr, "next stage not found\n");
     fprintf(stderr, "see you next version...\n");
@@ -201,7 +202,7 @@ void LoadStageData(void)
   fclose(fp);
   
   /* 敵出現データファイルを読み込む */
-  sprintf(buff, DATA_PATH "/stage%d.dat", Root->Stage + 1);
+  snprintf(buff, sizeof(buff), DATA_PATH "/stage%d.dat", Root->Stage + 1);
   if ((fp = fopen(buff, "r")) == NULL) {
     fprintf(stderr, "next stage not found\n");
     fprintf(stderr, "see you next version...\n");
@@ -228,10 +229,10 @@ void LoadStageData(void)
   fclose(fp);
   
   /* ボスキャラを読み込む */
-  sprintf(buff, "boss%d", Root->Stage + 1);
+  snprintf(buff, sizeof(buff), "boss%d", Root->Stage + 1);
   PixBoss = LoadPixmapSplit(buff, 0, bossmax[Root->Stage], 0.6);
   /* 背景キャラを読み込む */
-  sprintf(buff, "back%d", Root->Stage + 1);
+  snprintf(buff, sizeof(buff), "back%d", Root->Stage + 1);
   PixBack = LoadPixmapSplit(buff, 255, backmax[Root->Stage], 0.0);
 }
 
